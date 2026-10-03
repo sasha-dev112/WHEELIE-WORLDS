@@ -11,7 +11,7 @@
     
     <style>
         /* ==========================================
-           1. UPDATE MATNINI SHU YERDAN O'ZGARTIRASIZ 
+           UPDATE MATNINI SHU YERDAN O'ZGARTIRASIZ 
            ================================---------- */
         :root {
             --game-update-version: "UPDATE v.4.1";
@@ -38,7 +38,7 @@
             position: relative;
         }
 
-        /* Multfilm va Cyberpunk uslubidagi fon */
+        /* Cyberpunk va Multfilm uslubidagi fon */
         body::before {
             content: '';
             position: absolute;
@@ -50,15 +50,13 @@
             filter: saturate(1.4) contrast(1.2);
         }
 
-        /* ==========================================
-           2. HEADER VA MENYU DIZAYNI
-           ================================---------- */
+        /* Header va Navigatsiya */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 40px;
-            background: rgba(20, 20, 35, 0.75);
+            background: rgba(20, 20, 35, 0.85);
             backdrop-filter: blur(25px);
             border-bottom: 3px solid #ff007f;
             box-shadow: 0 10px 30px rgba(0,0,0,0.6);
@@ -68,12 +66,12 @@
         .logo-nav {
             display: flex;
             align-items: center;
-            gap: 40px;
+            gap: 30px;
         }
 
         .logo {
             font-family: 'Bangers', cursive;
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             letter-spacing: 2px;
             background: linear-gradient(45deg, #ff007f, #00f2fe, #f5af19);
             -webkit-background-clip: text;
@@ -81,10 +79,9 @@
             text-shadow: 3px 3px 0px rgba(0,0,0,0.5);
         }
 
-        /* Navigatsiya menyusi */
         .nav-menu {
             display: flex;
-            gap: 20px;
+            gap: 12px;
         }
 
         .nav-link {
@@ -93,14 +90,14 @@
             color: #fff;
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.9rem;
             cursor: pointer;
-            padding: 8px 16px;
+            padding: 8px 14px;
             border-radius: 12px;
             transition: 0.3s;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         .nav-link:hover, .nav-link.active {
@@ -108,16 +105,64 @@
             box-shadow: 0 0 15px #ff007f;
         }
 
+        /* User Balans va Profil qismi */
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .coin-balance {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(245, 175, 25, 0.15);
+            border: 2px solid #f5af19;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            color: #f5af19;
+            box-shadow: 0 0 15px rgba(245, 175, 25, 0.3);
+        }
+
+        .coin-balance i {
+            font-size: 1.2rem;
+            animation: spinCoin 3s linear infinite;
+        }
+
+        @keyframes spinCoin {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); }
+        }
+
+        .user-auth-btn {
+            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            border: none;
+            color: #000;
+            padding: 8px 18px;
+            border-radius: 12px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .user-auth-btn:hover {
+            box-shadow: 0 0 20px #00f2fe;
+            transform: scale(1.05);
+        }
+
         .lang-switcher {
             display: flex;
-            gap: 10px;
+            gap: 8px;
         }
 
         .lang-btn {
             background: rgba(255, 255, 255, 0.08);
             border: 2px solid rgba(255, 255, 255, 0.2);
             color: white;
-            padding: 6px 12px;
+            padding: 6px 10px;
             border-radius: 8px;
             cursor: pointer;
             font-family: 'Orbitron', sans-serif;
@@ -129,12 +174,9 @@
             background: #00f2fe;
             color: #000;
             border-color: #00f2fe;
-            box-shadow: 0 0 15px #00f2fe;
         }
 
-        /* ==========================================
-           3. SAHIFALAR (ASOSIY VA DOKON)
-           ================================---------- */
+        /* Sahifalar */
         .page-content {
             display: none;
             max-width: 1000px;
@@ -147,23 +189,22 @@
 
         .page-content.active-page {
             display: block;
-            animation: fadeIn 0.5s ease-in-out;
+            animation: fadeIn 0.4s ease-in-out;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .hero-card {
-            background: rgba(25, 25, 45, 0.8);
+            background: rgba(25, 25, 45, 0.85);
             backdrop-filter: blur(30px);
             border: 3px solid #00f2fe;
             border-radius: 35px;
             padding: 45px 35px;
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), inset 0 0 25px rgba(0, 242, 254, 0.1);
             position: relative;
-            overflow: hidden;
         }
 
         .status-badge {
@@ -220,7 +261,6 @@
             padding: 4px 12px;
             border-radius: 20px;
             font-weight: 700;
-            letter-spacing: 1px;
             box-shadow: 0 0 10px #ff007f;
         }
 
@@ -279,14 +319,185 @@
         }
 
         /* ==========================================
-           4. DOKON BO'LIMI (PITBIKE & QIYSHIQ FON)
+           DONAT & SHOP SAHIFASI
            ================================---------- */
+        .shop-section-title {
+            font-family: 'Bangers', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            color: #f5af19;
+            text-shadow: 2px 2px 0px #000;
+        }
+
+        /* Chegirma Taymeri */
+        .discount-timer-banner {
+            background: linear-gradient(45deg, #ff007f, #7928ca);
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            box-shadow: 0 0 20px rgba(255,0,127,0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .timer-box {
+            background: rgba(0,0,0,0.5);
+            padding: 5px 10px;
+            border-radius: 8px;
+            color: #00f2fe;
+        }
+
+        /* Promokod paneli */
+        .promo-container {
+            background: rgba(20,20,35,0.8);
+            border: 2px solid #00f2fe;
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 35px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .promo-input {
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 12px 20px;
+            border-radius: 10px;
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            width: 250px;
+        }
+
+        .promo-input:focus {
+            border-color: #00f2fe;
+            box-shadow: 0 0 10px rgba(0,242,254,0.4);
+        }
+
+        .promo-btn {
+            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            border: none;
+            color: #000;
+            padding: 12px 25px;
+            border-radius: 10px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .promo-btn:hover {
+            box-shadow: 0 0 15px #00f2fe;
+            transform: scale(1.05);
+        }
+
+        /* Donat kartochkalari gridi */
+        .donate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .donate-card {
+            background: rgba(20, 20, 35, 0.9);
+            border: 3px solid rgba(255, 255, 255, 0.15);
+            border-radius: 25px;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: 0.3s;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+        }
+
+        .donate-card.sale {
+            border-color: #f5af19;
+            box-shadow: 0 0 25px rgba(245, 175, 25, 0.25);
+        }
+
+        .sale-badge {
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background: #ff007f;
+            color: white;
+            padding: 5px 35px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 900;
+            transform: rotate(45deg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .donate-icon {
+            font-size: 3rem;
+            color: #f5af19;
+            margin-bottom: 15px;
+            text-shadow: 0 0 15px rgba(245, 175, 25, 0.5);
+        }
+
+        .donate-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .price-area {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .old-price {
+            font-size: 1rem;
+            color: #a4b0be;
+            text-decoration: line-through;
+        }
+
+        .current-price {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: #00f2fe;
+            text-shadow: 0 0 10px rgba(0,242,254,0.4);
+        }
+
+        .donate-btn {
+            background: linear-gradient(45deg, #f5af19, #f2709c);
+            border: none;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 12px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            width: 100%;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(245, 175, 25, 0.3);
+        }
+
+        .donate-btn:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 20px #f5af19;
+        }
+
+        /* Pitbike Magazin Karti (Нет в наличии) */
         .shop-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 40px;
-            flex-wrap: wrap;
             margin-top: 20px;
         }
 
@@ -295,16 +506,15 @@
             border: 3px solid #ff007f;
             border-radius: 30px;
             padding: 30px;
-            width: 360px;
+            width: 380px;
             text-align: center;
             position: relative;
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 30px rgba(255, 0, 127, 0.3);
         }
 
-        /* Orqa fonda qiyshayib yozilgan Wheelie World yozuvlari */
         .shop-card::before {
-            content: "WHEELIE WORLD WHEELIE WORLD WHEELIE WORLD WHEELIE WORLD WHEELIE WORLD WHEELIE WORLD WHEELIE WORLD WHEELIE WORLD WHEELIE WORLD WHEELIE WORLD";
+            content: "WHEELIE WORLD WHEELIE WORLD WHEELIE WORLD WHEELIE WORLD WHEELIE WORLD WHEELIE WORLD WHEELIE WORLD WHEELIE WORLD";
             position: absolute;
             top: -50px; left: -50px; right: -50px; bottom: -50px;
             font-family: 'Bangers', cursive;
@@ -312,25 +522,22 @@
             color: rgba(255, 255, 255, 0.03);
             transform: rotate(-25deg);
             z-index: 0;
-            line-height: 1.2;
             pointer-events: none;
-            word-spacing: 10px;
         }
 
         .bike-img-wrapper {
             position: relative;
             z-index: 2;
-            height: 220px;
+            height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 20px;
         }
 
-        /* Pitbayk o'ngga qarab turishi uchun chapga o'girilgan (scaleX(-1)) */
         .shop-card img {
             max-width: 100%;
-            max-height: 200px;
+            max-height: 180px;
             transform: scaleX(-1);
             filter: drop-shadow(0 15px 15px rgba(0,0,0,0.7));
             animation: floatBike 3s ease-in-out infinite;
@@ -338,12 +545,12 @@
 
         @keyframes floatBike {
             0%, 100% { transform: scaleX(-1) translateY(0); }
-            50% { transform: scaleX(-1) translateY(-8px); }
+            50% { transform: scaleX(-1) translateY(-6px); }
         }
 
         .shop-card h2 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             margin-bottom: 10px;
             color: #fff;
             z-index: 2;
@@ -352,7 +559,7 @@
 
         .shop-card p {
             color: #a4b0be;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             margin-bottom: 20px;
             z-index: 2;
             position: relative;
@@ -372,38 +579,92 @@
 
         .price {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 900;
             color: #00f2fe;
-            text-shadow: 0 0 10px rgba(0,242,254,0.5);
         }
 
         .buy-btn {
             background: linear-gradient(45deg, #ff007f, #ff416c);
             border: none;
             color: white;
-            padding: 10px 22px;
+            padding: 10px 20px;
             border-radius: 12px;
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
             cursor: pointer;
             transition: 0.3s;
-            box-shadow: 0 5px 15px rgba(255,0,127,0.4);
         }
 
         .buy-btn:hover {
-            transform: scale(1.08);
             box-shadow: 0 0 20px #ff007f;
         }
 
         /* ==========================================
-           5. MODAL OYNA (NET V NAYAVNOSTI)
+           PROFIL SAHIFASI
+           ================================---------- */
+        .profile-card {
+            background: rgba(20, 20, 35, 0.9);
+            border: 3px solid #00f2fe;
+            border-radius: 30px;
+            padding: 40px;
+            max-width: 500px;
+            margin: auto;
+            text-align: center;
+            box-shadow: 0 0 40px rgba(0,242,254,0.3);
+        }
+
+        .profile-avatar {
+            font-size: 5rem;
+            color: #00f2fe;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(0,242,254,0.6);
+        }
+
+        .profile-card h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .profile-info-box {
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            color: #f5af19;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logout-btn {
+            background: #ff416c;
+            border: none;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 12px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .logout-btn:hover {
+            box-shadow: 0 0 15px #ff416c;
+        }
+
+        /* ==========================================
+           MODAL OYNALAR (REGISTER, LOGIN, OUT OF STOCK)
            ================================---------- */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.82);
+            backdrop-filter: blur(12px);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -424,9 +685,9 @@
             border-radius: 25px;
             padding: 40px;
             width: 90%;
-            max-width: 400px;
+            max-width: 420px;
             text-align: center;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.9), 0 0 30px rgba(255,0,127,0.4);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.9), 0 0 35px rgba(255,0,127,0.4);
             transform: scale(0.8);
             transition: 0.3s ease;
         }
@@ -435,7 +696,7 @@
             transform: scale(1);
         }
 
-        .modal-box i {
+        .modal-box i.main-icon {
             font-size: 3.5rem;
             color: #ff416c;
             margin-bottom: 20px;
@@ -451,33 +712,62 @@
 
         .modal-box p {
             color: #d1d8e0;
-            font-size: 1.05rem;
+            font-size: 1rem;
             margin-bottom: 25px;
             line-height: 1.5;
         }
 
-        .modal-ok-btn {
+        .modal-input {
+            width: 100%;
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 12px 18px;
+            border-radius: 12px;
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            outline: none;
+        }
+
+        .modal-input:focus {
+            border-color: #00f2fe;
+            box-shadow: 0 0 10px rgba(0,242,254,0.4);
+        }
+
+        .modal-btn {
             background: linear-gradient(45deg, #00f2fe, #4facfe);
             border: none;
             color: #000;
-            padding: 12px 35px;
+            padding: 12px 30px;
             border-radius: 12px;
             font-family: 'Orbitron', sans-serif;
             font-weight: 900;
             font-size: 1.1rem;
             cursor: pointer;
+            width: 100%;
             transition: 0.3s;
-            box-shadow: 0 0 20px rgba(0, 242, 254, 0.5);
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
         }
 
-        .modal-ok-btn:hover {
-            transform: scale(1.05);
+        .modal-btn:hover {
             box-shadow: 0 0 30px #00f2fe;
+            transform: scale(1.02);
         }
 
-        /* ==========================================
-           6. FOOTER VA TIKTOK BOG'LANISH
-           ================================---------- */
+        .modal-switch-text {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #a4b0be;
+            cursor: pointer;
+        }
+
+        .modal-switch-text span {
+            color: #00f2fe;
+            font-weight: bold;
+        }
+
+        /* Footer */
         footer {
             text-align: center;
             padding: 25px;
@@ -530,7 +820,7 @@
 </head>
 <body>
 
-    <!-- Header / Menyu va Til Almashtirgich -->
+    <!-- Header / Menyu va Balans -->
     <header>
         <div class="logo-nav">
             <div class="logo">Wheelie World</div>
@@ -538,15 +828,27 @@
                 <button class="nav-link active" onclick="switchPage('home', this)" id="navHomeBtn">
                     <i class="fa-solid fa-house"></i> <span id="menuHomeText">Главная</span>
                 </button>
+                <button class="nav-link" onclick="switchPage('donate', this)" id="navDonateBtn">
+                    <i class="fa-solid fa-coins"></i> <span id="menuDonateText">Монет Шоу</span>
+                </button>
                 <button class="nav-link" onclick="switchPage('shop', this)" id="navShopBtn">
                     <i class="fa-solid fa-store"></i> <span id="menuShopText">Магазин</span>
                 </button>
             </nav>
         </div>
-        <div class="lang-switcher">
-            <button class="lang-btn" onclick="changeLang('ru')">RU</button>
-            <button class="lang-btn" onclick="changeLang('en')">EN</button>
-            <button class="lang-btn" onclick="changeLang('ua')">UA</button>
+        <div class="header-right">
+            <!-- Tanga Balansi -->
+            <div class="coin-balance">
+                <i class="fa-solid fa-coins"></i> <span id="userCoinsDisplay">0</span>
+            </div>
+            <!-- Auth / Profil tugmasi -->
+            <button class="user-auth-btn" id="authHeaderBtn" onclick="openAuthModal()">Войти</button>
+            <!-- Til almashtirgich -->
+            <div class="lang-switcher">
+                <button class="lang-btn" onclick="changeLang('ru')">RU</button>
+                <button class="lang-btn" onclick="changeLang('en')">EN</button>
+                <button class="lang-btn" onclick="changeLang('ua')">UA</button>
+            </div>
         </div>
     </header>
 
@@ -560,7 +862,7 @@
                 Самый экстремальный симулятор трюков на питбайках и электросамокатах! Дерзкие вилли, ночные улицы, полный тюнинг и адреналин. Проект находится в активной разработке!
             </p>
 
-            <!-- Update Bloki (Yuqoridagi CSS o'zgaruvchisidan o'qiydi) -->
+            <!-- Update Bloki -->
             <div class="daily-update-box" id="updateBoxDiv" data-version="UPDATE v.4.1">
                 <h3 id="updateHeader"><i class="fa-solid fa-rocket"></i> ЕЖЕДНЕВНЫЙ ПАТЧНОУТ:</h3>
                 <p id="updateDescText">Добавлена новая физика трюков, ночной режим освещения и кастомизация байков!</p>
@@ -584,11 +886,94 @@
         </div>
     </div>
 
-    <!-- 2. DOKON SAHIFASI (MAGAZIN) -->
+    <!-- 2. DONATE / MONET SHOP SAHIFASI -->
+    <div id="donatePage" class="page-content">
+        <h2 class="shop-section-title" id="donateTitleText">МАГАЗИН МОНЕТ И ДОНАТ</h2>
+        
+        <!-- Chegirma Taymeri -->
+        <div class="discount-timer-banner">
+            <i class="fa-solid fa-fire"></i> <span id="timerText">Скидки завершатся через:</span>
+            <div class="timer-box" id="countdownTimer">30d 23h 59m</div>
+        </div>
+
+        <!-- Promokod Kiritish Joyi -->
+        <div class="promo-container">
+            <input type="text" id="promoInputCode" class="promo-input" placeholder="Введите промокод...">
+            <button class="promo-btn" onclick="applyPromoCode()" id="promoBtnText">Активировать</button>
+        </div>
+
+        <!-- Donat Kartochkalari (Chegirmalar bilan) -->
+        <div class="donate-grid">
+            <!-- 100 Tanga -->
+            <div class="donate-card">
+                <div class="donate-icon"><i class="fa-solid fa-coins"></i></div>
+                <h3>100 Coins</h3>
+                <div class="price-area">
+                    <span class="current-price">$0.99</span>
+                </div>
+                <button class="donate-btn" onclick="buyCoins(100, 0.99)">Купить</button>
+            </div>
+
+            <!-- 350 Tanga (Chegirma) -->
+            <div class="donate-card sale">
+                <div class="sale-badge">-25%</div>
+                <div class="donate-icon"><i class="fa-solid fa-coins"></i></div>
+                <h3>350 Coins</h3>
+                <div class="price-area">
+                    <span class="old-price">$3.99</span>
+                    <span class="current-price">$2.99</span>
+                </div>
+                <button class="donate-btn" onclick="buyCoins(350, 2.99)">Купить</button>
+            </div>
+
+            <!-- 600 Tanga -->
+            <div class="donate-card">
+                <div class="donate-icon"><i class="fa-solid fa-coins"></i></div>
+                <h3>600 Coins</h3>
+                <div class="price-area">
+                    <span class="current-price">$5.99</span>
+                </div>
+                <button class="donate-btn" onclick="buyCoins(600, 5.99)">Купить</button>
+            </div>
+
+            <!-- 1000 Tanga -->
+            <div class="donate-card">
+                <div class="donate-icon"><i class="fa-solid fa-coins"></i></div>
+                <h3>1,000 Coins</h3>
+                <div class="price-area">
+                    <span class="current-price">$10.00</span>
+                </div>
+                <button class="donate-btn" onclick="buyCoins(1000, 10.00)">Купить</button>
+            </div>
+
+            <!-- 2500 Tanga (Chegirma) -->
+            <div class="donate-card sale">
+                <div class="sale-badge">-10%</div>
+                <div class="donate-icon"><i class="fa-solid fa-coins"></i></div>
+                <h3>2,500 Coins</h3>
+                <div class="price-area">
+                    <span class="old-price">$25.99</span>
+                    <span class="current-price">$23.99</span>
+                </div>
+                <button class="donate-btn" onclick="buyCoins(2500, 23.99)">Купить</button>
+            </div>
+
+            <!-- 5000 Tanga (2 ta Sunduk) -->
+            <div class="donate-card">
+                <div class="donate-icon"><i class="fa-solid fa-box-open"></i><i class="fa-solid fa-box-open" style="margin-left:-15px;"></i></div>
+                <h3>5,000 Coins + 2 Chests</h3>
+                <div class="price-area">
+                    <span class="current-price">$49.99</span>
+                </div>
+                <button class="donate-btn" onclick="buyCoins(5000, 49.99)">Купить</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. SHOP SAHIFASI (Pitbike) -->
     <div id="shopPage" class="page-content">
         <div class="shop-container">
             <div class="shop-card">
-                <!-- Pitbike rasmi (O'ngga qaragan va orqada Wheelie World yozuvlari) -->
                 <div class="bike-img-wrapper">
                     <img src="https://images.prom.ua/5892976105_w1280_h640_5892976105.webp" alt="Pitbike Stunt">
                 </div>
@@ -596,23 +981,53 @@
                 <p id="shopItemDesc">Легендарный питбайк для безумных трюков и вилли в игре!</p>
                 <div class="price-buy-row">
                     <span class="price">$5.99</span>
-                    <button class="buy-btn" onclick="openModal()" id="buyBtnText">Купить</button>
+                    <button class="buy-btn" onclick="openModal('stock')" id="buyBtnText">Купить</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal Oyna (Нет в наличии) -->
-    <div class="modal-overlay" id="outOfStockModal">
-        <div class="modal-box">
-            <i class="fa-solid fa-triangle-exclamation"></i>
-            <h3 id="modalTitle">Упс! Товар закончился</h3>
-            <p id="modalDesc">К сожалению, этот питбайк временно отсутствует на складе (Нет в наличии).</p>
-            <button class="modal-ok-btn" onclick="closeModal()">OK</button>
+    <!-- 4. PROFIL SAHIFASI -->
+    <div id="profilePage" class="page-content">
+        <div class="profile-card">
+            <div class="profile-avatar"><i class="fa-solid fa-user-ninja"></i></div>
+            <h2 id="profileUsernameDisplay">GamerName</h2>
+            <div class="profile-info-box">
+                <span id="profileCoinLabel">Ваш баланс:</span>
+                <strong id="profileCoinsVal">0 Coins</strong>
+            </div>
+            <button class="logout-btn" onclick="logoutUser()" id="logoutBtnText">Выйти из аккаунта</button>
         </div>
     </div>
 
-    <!-- Footer va TikTok -->
+    <!-- Modal Oyna: UPPSS (Нет в наличии) -->
+    <div class="modal-overlay" id="outOfStockModal">
+        <div class="modal-box">
+            <i class="fa-solid fa-triangle-exclamation main-icon"></i>
+            <h3 id="modalTitle">Упс! Товар закончился</h3>
+            <p id="modalDesc">К сожалению, этот питбайк временно отсутствует на складе (Нет в наличии).</p>
+            <button class="modal-btn" onclick="closeModal('stock')">OK</button>
+        </div>
+    </div>
+
+    <!-- Modal Oyna: REGISTER / LOGIN -->
+    <div class="modal-overlay" id="authModal">
+        <div class="modal-box">
+            <i class="fa-solid fa-user-shield main-icon" style="color: #00f2fe;"></i>
+            <h3 id="authModalTitle">Регистрация в игре</h3>
+            <p id="authModalDesc">Введите логин и пароль для сохранения аккаунта и баланса монет.</p>
+            
+            <input type="text" id="authUsernameInput" class="modal-input" placeholder="Имя (Логин)...">
+            <input type="password" id="authPasswordInput" class="modal-input" placeholder="Пароль...">
+            
+            <button class="modal-btn" id="authSubmitBtn" onclick="handleAuthSubmit()">Зарегистрироваться</button>
+            <div class="modal-switch-text" id="authSwitchText" onclick="toggleAuthMode()">
+                Уже есть аккаунт? <span>Войти</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
     <footer>
         <p class="footer-text" id="footerText">Официальный TikTok разработчика для связи:</p>
         <a href="https://www.tiktok.com/@wheelie_worlds" target="_blank" class="social-link">
@@ -622,30 +1037,172 @@
 
     <!-- JavaScript Scriptlar -->
     <script>
-        // Sahifalarni almashtirish funksiyasi
+        // Foydalanuvchi ma'lumotlarini brauzerdan olish yoki boshlash
+        let currentUser = localStorage.getItem('ww_user') ? JSON.parse(localStorage.getItem('ww_user')) : null;
+        let isLoginMode = false;
+        let promoUsed = localStorage.getItem('ww_promo') === 'true';
+
+        // Har 0.1 sekundda (100ms) avtomatik saqlash va yangilash
+        setInterval(() => {
+            if (currentUser) {
+                localStorage.setItem('ww_user', JSON.stringify(currentUser));
+                document.getElementById('userCoinsDisplay').innerText = currentUser.coins;
+            }
+        }, 100);
+
+        // Sahifani yuklaganda tekshirish
+        window.onload = function() {
+            updateAuthUI();
+            startTimer();
+        };
+
+        function updateAuthUI() {
+            const authBtn = document.getElementById('authHeaderBtn');
+            if (currentUser) {
+                authBtn.innerText = currentUser.username;
+                authBtn.setAttribute('onclick', "switchPage('profile', document.getElementById('navHomeBtn'))");
+                document.getElementById('profileUsernameDisplay').innerText = currentUser.username;
+                document.getElementById('profileCoinsVal').innerText = currentUser.coins + " Coins";
+            } else {
+                authBtn.innerText = "Войти";
+                authBtn.setAttribute('onclick', "openAuthModal()");
+            }
+        }
+
+        // Sahifalarni almashtirish
         function switchPage(pageId, btnElement) {
+            if(pageId === 'profile' && !currentUser) {
+                openAuthModal();
+                return;
+            }
             document.querySelectorAll('.page-content').forEach(page => page.classList.remove('active-page'));
             document.querySelectorAll('.nav-link').forEach(btn => btn.classList.remove('active'));
 
             if(pageId === 'home') {
                 document.getElementById('homePage').classList.add('active-page');
+            } else if(pageId === 'donate') {
+                document.getElementById('donatePage').classList.add('active-page');
             } else if(pageId === 'shop') {
                 document.getElementById('shopPage').classList.add('active-page');
+            } else if(pageId === 'profile') {
+                document.getElementById('profilePage').classList.add('active-page');
             }
-            btnElement.classList.add('active');
+            if(btnElement) btnElement.classList.add('active');
         }
 
-        // Modal oynani ochish va yopish
-        function openModal() {
-            document.getElementById('outOfStockModal').classList.add('active');
+        // Modal oynalar
+        function openModal(type) {
+            if(type === 'stock') {
+                document.getElementById('outOfStockModal').classList.add('active');
+            }
         }
-        function closeModal() {
-            document.getElementById('outOfStockModal').classList.remove('active');
+        function closeModal(type) {
+            if(type === 'stock') {
+                document.getElementById('outOfStockModal').classList.remove('active');
+            }
         }
 
-        // Tilni o'zgartirish funksiyasi
+        function openAuthModal() {
+            document.getElementById('authModal').classList.add('active');
+        }
+        function closeAuthModal() {
+            document.getElementById('authModal').classList.remove('active');
+        }
+
+        function toggleAuthMode() {
+            isLoginMode = !isLoginMode;
+            const title = document.getElementById('authModalTitle');
+            const desc = document.getElementById('authModalDesc');
+            const btn = document.getElementById('authSubmitBtn');
+            const switchText = document.getElementById('authSwitchText');
+
+            if(isLoginMode) {
+                title.innerText = "Вход в аккаунт";
+                desc.innerText = "Введите свой логин и пароль.";
+                btn.innerText = "Войти";
+                switchText.innerHTML = "Нет аккаунта? <span>Зарегистрироваться</span>";
+            } else {
+                title.innerText = "Регистрация в игре";
+                desc.innerText = "Введите логин и пароль для сохранения баланса.";
+                btn.innerText = "Зарегистрироваться";
+                switchText.innerHTML = "Уже есть аккаунт? <span>Войти</span>";
+            }
+        }
+
+        function handleAuthSubmit() {
+            const username = document.getElementById('authUsernameInput').value.trim();
+            const password = document.getElementById('authPasswordInput').value.trim();
+
+            if(!username || !password) {
+                alert("Заполните все поля!");
+                return;
+            }
+
+            currentUser = { username: username, password: password, coins: 0 };
+            localStorage.setItem('ww_user', JSON.stringify(currentUser));
+            updateAuthUI();
+            closeAuthModal();
+            alert("Успешно!");
+        }
+
+        function logoutUser() {
+            currentUser = null;
+            localStorage.removeItem('ww_user');
+            updateAuthUI();
+            switchPage('home', document.getElementById('navHomeBtn'));
+        }
+
+        // Tanga sotib olish (Donat simulyatsiyasi)
+        function buyCoins(amount, price) {
+            if(!currentUser) {
+                alert("Сначала войдите в аккаунт или зарегистрируйтесь!");
+                openAuthModal();
+                return;
+            }
+            currentUser.coins += amount;
+            alert(`Успешно приобретено ${amount} монет за $${price}! Баланс обновлен.`);
+            updateAuthUI();
+        }
+
+        // Promokod funksiyasi (`soon2027`)
+        function applyPromoCode() {
+            if(!currentUser) {
+                alert("Войдите в аккаунт, чтобы использовать промокод!");
+                openAuthModal();
+                return;
+            }
+            const code = document.getElementById('promoInputCode').value.trim();
+            if(code === "soon2027") {
+                if(promoUsed) {
+                    alert("Вы уже использовали этот промокод!");
+                    return;
+                }
+                currentUser.coins += 100;
+                promoUsed = true;
+                localStorage.setItem('ww_promo', 'true');
+                alert("Поздравляем! Промокод активирован: +100 монет на ваш баланс!");
+                updateAuthUI();
+            } else {
+                alert("Неверный промокод!");
+            }
+        }
+
+        // 1 oylik Timer funksiyasi
+        function startTimer() {
+            let time = 30 * 24 * 60 * 60; // 30 kun sekundda
+            setInterval(() => {
+                let days = Math.floor(time / (3600 * 24));
+                let hours = Math.floor((time % (3600 * 24)) / 3600);
+                let minutes = Math.floor((time % 3600) / 60);
+                document.getElementById('countdownTimer').innerText = `${days}d ${hours}h ${minutes}m`;
+                if(time > 0) time--;
+            }, 1000);
+        }
+
+        // Tilni o'zgartirish
         function changeLang(lang) {
             const menuHomeText = document.getElementById('menuHomeText');
+            const menuDonateText = document.getElementById('menuDonateText');
             const menuShopText = document.getElementById('menuShopText');
             const statusText = document.getElementById('statusText');
             const mainDesc = document.getElementById('mainDesc');
@@ -656,15 +1213,21 @@
             const platformLabel = document.getElementById('platformLabel');
             const statusLabel = document.getElementById('statusLabel');
             const statusBoxText = document.getElementById('statusBoxText');
+            const donateTitleText = document.getElementById('donateTitleText');
+            const timerText = document.getElementById('timerText');
+            const promoBtnText = document.getElementById('promoBtnText');
             const shopItemTitle = document.getElementById('shopItemTitle');
             const shopItemDesc = document.getElementById('shopItemDesc');
             const buyBtnText = document.getElementById('buyBtnText');
             const modalTitle = document.getElementById('modalTitle');
             const modalDesc = document.getElementById('modalDesc');
+            const profileCoinLabel = document.getElementById('profileCoinLabel');
+            const logoutBtnText = document.getElementById('logoutBtnText');
             const footerText = document.getElementById('footerText');
 
             if(lang === 'ru') {
                 menuHomeText.innerText = "Главная";
+                menuDonateText.innerText = "Монет Шоу";
                 menuShopText.innerText = "Магазин";
                 statusText.innerText = "🎮 Игра в разработке (Скоро релиз)";
                 mainDesc.innerText = "Самый экстремальный симулятор трюков на питбайках и электросамокатах! Дерзкие вилли, ночные улицы, полный тюнинг и адреналин. Проект находится в активной разработке!";
@@ -675,18 +1238,24 @@
                 platformLabel.innerText = "Платформы";
                 statusLabel.innerText = "Статус";
                 statusBoxText.innerText = "Разработка";
+                donateTitleText.innerText = "МАГАЗИН МОНЕТ И ДОНАТ";
+                timerText.innerText = "Скидки завершатся через:";
+                promoBtnText.innerText = "Активировать";
                 shopItemTitle.innerText = "Pro Pitbike Stunt";
                 shopItemDesc.innerText = "Легендарный питбайк для безумных трюков и вилли в игре!";
                 buyBtnText.innerText = "Купить";
                 modalTitle.innerText = "Упс! Товар закончился";
                 modalDesc.innerText = "К сожалению, этот питбайк временно отсутствует на складе (Нет в наличии).";
+                profileCoinLabel.innerText = "Ваш баланс:";
+                logoutBtnText.innerText = "Выйти из аккаунта";
                 footerText.innerText = "Официальный TikTok разработчика для связи:";
             } 
             else if(lang === 'en') {
                 menuHomeText.innerText = "Home";
+                menuDonateText.innerText = "Coin Shop";
                 menuShopText.innerText = "Shop";
                 statusText.innerText = "🎮 Game in Development (Coming Soon)";
-                mainDesc.innerText = "The most extreme stunt simulator on pitbikes and electric scooters! Daring wheelies, night streets, full tuning and adrenaline. The project is under active development!";
+                mainDesc.innerText = "The most extreme stunt simulator on pitbikes and electric scooters! Daring wheelies, night streets, full tuning and adrenaline. Active development!";
                 updateHeader.innerHTML = '<i class="fa-solid fa-rocket"></i> DAILY PATCH NOTES:';
                 updateDescText.innerText = "Added new stunt physics, night lighting mode, and bike customization!";
                 engineLabel.innerText = "Game Engine";
@@ -694,18 +1263,24 @@
                 platformLabel.innerText = "Platforms";
                 statusLabel.innerText = "Status";
                 statusBoxText.innerText = "Development";
+                donateTitleText.innerText = "COIN & DONATE SHOP";
+                timerText.innerText = "Discounts end in:";
+                promoBtnText.innerText = "Activate";
                 shopItemTitle.innerText = "Pro Pitbike Stunt";
                 shopItemDesc.innerText = "Legendary pitbike for crazy stunts and wheelies in the game!";
                 buyBtnText.innerText = "Buy";
                 modalTitle.innerText = "Oops! Out of Stock";
                 modalDesc.innerText = "Unfortunately, this pitbike is temporarily out of stock (Нет в наличии).";
+                profileCoinLabel.innerText = "Your balance:";
+                logoutBtnText.innerText = "Log out";
                 footerText.innerText = "Official Developer TikTok for contact:";
             } 
             else if(lang === 'ua') {
                 menuHomeText.innerText = "Головна";
+                menuDonateText.innerText = "Монети";
                 menuShopText.innerText = "Магазин";
                 statusText.innerText = "🎮 Гра в розробці (Скоро реліз)";
-                mainDesc.innerText = "Найекстремальніший симулятор трюків на пітбайках та електросамокатах! Зухвалі віллі, нічні вулиці, повний тюнінг та адреналін. Проєкт у активній розробці!";
+                mainDesc.innerText = "Найекстремальніший симулятор трюків на пітбайках та електросамокатах! Зухвалі віллі, нічні вулиці, повний тюнінг та адреналін.";
                 updateHeader.innerHTML = '<i class="fa-solid fa-rocket"></i> ЩОДЕННИЙ ПАТЧНОУТ:';
                 updateDescText.innerText = "Додано нову фізику трюків, нічний режим освітлення та кастомізацію байків!";
                 engineLabel.innerText = "Ігровий рушій";
@@ -713,11 +1288,16 @@
                 platformLabel.innerText = "Платформи";
                 statusLabel.innerText = "Статус";
                 statusBoxText.innerText = "Розробка";
+                donateTitleText.innerText = "МАГАЗИН МОНЕТ ТА ДОНАТ";
+                timerText.innerText = "Знижки закінчаться через:";
+                promoBtnText.innerText = "Активувати";
                 shopItemTitle.innerText = "Pro Pitbike Stunt";
                 shopItemDesc.innerText = "Легендарний пітбайк для божевільних трюків та віллі у грі!";
                 buyBtnText.innerText = "Купити";
                 modalTitle.innerText = "Упс! Товар закінчився";
                 modalDesc.innerText = "На жаль, цей пітбайк тимчасово відсутній на складі (Нет в наличии).";
+                profileCoinLabel.innerText = "Ваш баланс:";
+                logoutBtnText.innerText = "Вийти з акаунта";
                 footerText.innerText = "Офіційний TikTok розробника для зв'язку:";
             }
         }
