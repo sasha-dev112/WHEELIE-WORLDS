@@ -105,7 +105,6 @@
             box-shadow: 0 0 15px #ff007f;
         }
 
-        /* User Balans va Profil qismi */
         .header-right {
             display: flex;
             align-items: center;
@@ -868,7 +867,7 @@
                 <p id="updateDescText">Добавлена новая физика трюков, ночной режим освещения и кастомизация байков!</p>
             </div>
 
-            <!-- Xarakteristika (Dvigatel: НЕИЗВЕСТНО) -->
+            <!-- Xarakteristika -->
             <div class="specs-grid">
                 <div class="spec-box">
                     <span id="engineLabel">Игровой движок</span>
@@ -902,7 +901,7 @@
             <button class="promo-btn" onclick="applyPromoCode()" id="promoBtnText">Активировать</button>
         </div>
 
-        <!-- Donat Kartochkalari (Chegirmalar bilan) -->
+        <!-- Donat Kartochkalari (Barchasida Net v nalychii modal ishlaydi) -->
         <div class="donate-grid">
             <!-- 100 Tanga -->
             <div class="donate-card">
@@ -911,7 +910,7 @@
                 <div class="price-area">
                     <span class="current-price">$0.99</span>
                 </div>
-                <button class="donate-btn" onclick="buyCoins(100, 0.99)">Купить</button>
+                <button class="donate-btn" onclick="openModal('stock')">Купить</button>
             </div>
 
             <!-- 350 Tanga (Chegirma) -->
@@ -923,7 +922,7 @@
                     <span class="old-price">$3.99</span>
                     <span class="current-price">$2.99</span>
                 </div>
-                <button class="donate-btn" onclick="buyCoins(350, 2.99)">Купить</button>
+                <button class="donate-btn" onclick="openModal('stock')">Купить</button>
             </div>
 
             <!-- 600 Tanga -->
@@ -933,7 +932,7 @@
                 <div class="price-area">
                     <span class="current-price">$5.99</span>
                 </div>
-                <button class="donate-btn" onclick="buyCoins(600, 5.99)">Купить</button>
+                <button class="donate-btn" onclick="openModal('stock')">Купить</button>
             </div>
 
             <!-- 1000 Tanga -->
@@ -943,7 +942,7 @@
                 <div class="price-area">
                     <span class="current-price">$10.00</span>
                 </div>
-                <button class="donate-btn" onclick="buyCoins(1000, 10.00)">Купить</button>
+                <button class="donate-btn" onclick="openModal('stock')">Купить</button>
             </div>
 
             <!-- 2500 Tanga (Chegirma) -->
@@ -955,7 +954,7 @@
                     <span class="old-price">$25.99</span>
                     <span class="current-price">$23.99</span>
                 </div>
-                <button class="donate-btn" onclick="buyCoins(2500, 23.99)">Купить</button>
+                <button class="donate-btn" onclick="openModal('stock')">Купить</button>
             </div>
 
             <!-- 5000 Tanga (2 ta Sunduk) -->
@@ -965,7 +964,7 @@
                 <div class="price-area">
                     <span class="current-price">$49.99</span>
                 </div>
-                <button class="donate-btn" onclick="buyCoins(5000, 49.99)">Купить</button>
+                <button class="donate-btn" onclick="openModal('stock')">Купить</button>
             </div>
         </div>
     </div>
@@ -1005,7 +1004,7 @@
         <div class="modal-box">
             <i class="fa-solid fa-triangle-exclamation main-icon"></i>
             <h3 id="modalTitle">Упс! Товар закончился</h3>
-            <p id="modalDesc">К сожалению, этот питбайк временно отсутствует на складе (Нет в наличии).</p>
+            <p id="modalDesc">К сожалению, этот товар временно отсутствует на складе (Нет в наличии).</p>
             <button class="modal-btn" onclick="closeModal('stock')">OK</button>
         </div>
     </div>
@@ -1037,20 +1036,24 @@
 
     <!-- JavaScript Scriptlar -->
     <script>
-        // Foydalanuvchi ma'lumotlarini brauzerdan olish yoki boshlash
+        // Har bir yangi yoki mavjud foydalanuvchida balans qat'iy 0 dan boshlanadi
         let currentUser = localStorage.getItem('ww_user') ? JSON.parse(localStorage.getItem('ww_user')) : null;
+        if(currentUser && currentUser.coins === undefined) {
+            currentUser.coins = 0;
+        }
         let isLoginMode = false;
         let promoUsed = localStorage.getItem('ww_promo') === 'true';
 
-        // Har 0.1 sekundda (100ms) avtomatik saqlash va yangilash
+        // Har 0.1 sekundda (100ms) avtomatik saqlash va 0 balansni qattiq nazorat qilish
         setInterval(() => {
             if (currentUser) {
                 localStorage.setItem('ww_user', JSON.stringify(currentUser));
                 document.getElementById('userCoinsDisplay').innerText = currentUser.coins;
+            } else {
+                document.getElementById('userCoinsDisplay').innerText = "0";
             }
         }, 100);
 
-        // Sahifani yuklaganda tekshirish
         window.onload = function() {
             updateAuthUI();
             startTimer();
@@ -1069,7 +1072,6 @@
             }
         }
 
-        // Sahifalarni almashtirish
         function switchPage(pageId, btnElement) {
             if(pageId === 'profile' && !currentUser) {
                 openAuthModal();
@@ -1090,7 +1092,7 @@
             if(btnElement) btnElement.classList.add('active');
         }
 
-        // Modal oynalar
+        // Modal oynalar (Нет в наличии)
         function openModal(type) {
             if(type === 'stock') {
                 document.getElementById('outOfStockModal').classList.add('active');
@@ -1138,6 +1140,7 @@
                 return;
             }
 
+            // Yangi registratsiya qilinganda balans qat'iy 0 qilib belgilanadi
             currentUser = { username: username, password: password, coins: 0 };
             localStorage.setItem('ww_user', JSON.stringify(currentUser));
             updateAuthUI();
@@ -1150,18 +1153,6 @@
             localStorage.removeItem('ww_user');
             updateAuthUI();
             switchPage('home', document.getElementById('navHomeBtn'));
-        }
-
-        // Tanga sotib olish (Donat simulyatsiyasi)
-        function buyCoins(amount, price) {
-            if(!currentUser) {
-                alert("Сначала войдите в аккаунт или зарегистрируйтесь!");
-                openAuthModal();
-                return;
-            }
-            currentUser.coins += amount;
-            alert(`Успешно приобретено ${amount} монет за $${price}! Баланс обновлен.`);
-            updateAuthUI();
         }
 
         // Promokod funksiyasi (`soon2027`)
@@ -1245,7 +1236,7 @@
                 shopItemDesc.innerText = "Легендарный питбайк для безумных трюков и вилли в игре!";
                 buyBtnText.innerText = "Купить";
                 modalTitle.innerText = "Упс! Товар закончился";
-                modalDesc.innerText = "К сожалению, этот питбайк временно отсутствует на складе (Нет в наличии).";
+                modalDesc.innerText = "К сожалению, этот товар временно отсутствует на складе (Нет в наличии).";
                 profileCoinLabel.innerText = "Ваш баланс:";
                 logoutBtnText.innerText = "Выйти из аккаунта";
                 footerText.innerText = "Официальный TikTok разработчика для связи:";
@@ -1270,7 +1261,7 @@
                 shopItemDesc.innerText = "Legendary pitbike for crazy stunts and wheelies in the game!";
                 buyBtnText.innerText = "Buy";
                 modalTitle.innerText = "Oops! Out of Stock";
-                modalDesc.innerText = "Unfortunately, this pitbike is temporarily out of stock (Нет в наличии).";
+                modalDesc.innerText = "Unfortunately, this item is temporarily out of stock (Нет в наличии).";
                 profileCoinLabel.innerText = "Your balance:";
                 logoutBtnText.innerText = "Log out";
                 footerText.innerText = "Official Developer TikTok for contact:";
@@ -1295,7 +1286,7 @@
                 shopItemDesc.innerText = "Легендарний пітбайк для божевільних трюків та віллі у грі!";
                 buyBtnText.innerText = "Купити";
                 modalTitle.innerText = "Упс! Товар закінчився";
-                modalDesc.innerText = "На жаль, цей пітбайк тимчасово відсутній на складі (Нет в наличии).";
+                modalDesc.innerText = "На жаль, цей товар тимчасово відсутній на складі (Нет в наличии).";
                 profileCoinLabel.innerText = "Ваш баланс:";
                 logoutBtnText.innerText = "Вийти з акаунта";
                 footerText.innerText = "Офіційний TikTok розробника для зв'язку:";
