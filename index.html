@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Скачать крутую игру на движке Godot Engine бесплатно и без вирусов. Поддерживаемые устройства: ПК, Windows, Android. Русский язык интерфейса.">
-    <meta name="keywords" content="скачать игру, godot engine, инди игра, игра на ПК, скачать бесплатно">
-    <title>Скачать крутую игру на Godot Engine бесплатно | Официальная страница</title>
-    
+    <title>Wheelie World | Официальный сайт игры</title>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome ikonka uchun -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- CSS Стиль -->
     <style>
         * {
             margin: 0;
@@ -20,168 +18,252 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            /* [35-45 qatorlar] Pitbike va elektro samokat stunt qilayotgan fon rasmi va qoraytirilgan qatlam */
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85)), 
+                        url('https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=1920&auto=format&fit=crop') no-repeat center center fixed;
+            background-size: cover;
             color: #ffffff;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            overflow-x: hidden;
         }
 
+        /* Yuqori qism / Header */
         header {
-            text-align: center;
-            padding: 40px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        header h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            background: linear-gradient(45deg, #00f2fe, #4facfe);
+        /* [60-70 qatorlar] Wheelie World nomi */
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #ff007f, #00f2fe);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
 
-        header p {
-            font-size: 1.2rem;
-            color: #b2bec3;
+        /* Til o'zgartirish paneli */
+        .lang-switcher {
+            display: flex;
+            gap: 10px;
         }
 
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .lang-btn:hover {
+            background: #ff007f;
+            border-color: #ff007f;
+        }
+
+        /* Asosiy kontent */
         .container {
             max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
+            margin: auto;
+            padding: 40px 20px;
             text-align: center;
         }
 
-        .game-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            margin-bottom: 40px;
+        .hero-card {
+            background: rgba(20, 20, 30, 0.7);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 25px;
+            padding: 50px 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
         }
 
-        .download-btn {
+        /* [85-110 qatorlar] Razrabotka statusi */
+        .status-badge {
             display: inline-block;
-            background: linear-gradient(135deg, #11998e, #38ef7d);
+            background: linear-gradient(45deg, #f12711, #f5af19);
             color: white;
-            font-size: 1.3rem;
-            font-weight: 600;
-            padding: 18px 45px;
+            padding: 8px 20px;
             border-radius: 50px;
-            text-decoration: none;
-            box-shadow: 0 10px 20px rgba(56, 239, 125, 0.3);
-            transition: all 0.3s ease;
-            margin-top: 25px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(241, 39, 17, 0.4);
+            animation: pulse 2s infinite;
         }
 
-        .download-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 25px rgba(56, 239, 125, 0.5);
-            background: linear-gradient(135deg, #0e8076, #30cc6a);
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
 
-        .specs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        .hero-card h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 900;
+        }
+
+        .hero-card p {
+            font-size: 1.1rem;
+            color: #dcdde1;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        /* [130-150 qatorlar] Dvigatel va ma'lumotlar */
+        .engine-info {
+            display: flex;
+            justify-content: center;
             gap: 20px;
             margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .engine-box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px 25px;
+            border-radius: 12px;
+            border-left: 4px solid #00f2fe;
             text-align: left;
         }
 
-        .spec-item {
-            background: rgba(0, 0, 0, 0.2);
-            padding: 15px 20px;
-            border-radius: 10px;
-            border-left: 4px solid #4facfe;
-        }
-
-        .spec-item h4 {
-            font-size: 0.9rem;
+        .engine-box span {
+            font-size: 0.8rem;
             color: #a4b0be;
-            margin-bottom: 5px;
-            text-transform: uppercase;
+            display: block;
         }
 
-        .spec-item p {
+        .engine-box strong {
             font-size: 1.1rem;
-            font-weight: 600;
-            color: #ffffff;
+            color: #fff;
         }
 
+        /* [165-180 qatorlar] Footer va TikTok bog'lanish */
         footer {
             text-align: center;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.3);
-            font-size: 0.9rem;
-            color: #718093;
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* Responsive */
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 2.2rem;
-            }
-            .download-btn {
-                width: 100%;
-                padding: 15px;
-            }
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            text-decoration: none;
+            background: #000;
+            border: 1px solid #333;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        .social-link:hover {
+            background: #ff0050;
+            border-color: #ff0050;
+            box-shadow: 0 5px 15px rgba(255, 0, 80, 0.4);
+        }
+
+        .social-link i {
+            font-size: 1.2rem;
+        }
+
+        @media(max-width: 600px) {
+            .hero-card h1 { font-size: 2rem; }
+            header { padding: 15px 20px; }
+            .logo { font-size: 1.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Asosiy Sarlavha -->
+    <!-- Header / Sarlavha va Til menyusi -->
     <header>
-        <h1>Godot Game Portal</h1>
-        <p>Официальная страница для скачивания моей инди-игры</p>
+        <div class="logo">Wheelie World</div>
+        <div class="lang-switcher">
+            <button class="lang-btn" onclick="changeLang('ru')">RU</button>
+            <button class="lang-btn" onclick="changeLang('en')">EN</button>
+            <button class="lang-btn" onclick="changeLang('ua')">UA</button>
+        </div>
     </header>
 
-    <!-- Asosiy Kontent -->
+    <!-- Asosiy qism -->
     <div class="container">
-        <div class="game-card">
-            <h2>Об игре</h2>
-            <p style="margin-top: 15px; color: #dfe6e9; line-height: 1.6;">
-                Добро пожаловать! Это захватывающий проект, разработанный на мощном движке 
-                <strong>Godot Engine</strong>. Вас ждут увлекательный геймплей, крутая графика и море эмоций. 
-                Игра полностью переведена на русский язык и оптимизирована для стабильной работы.
+        <div class="hero-card">
+            <!-- O'yin holati -->
+            <div class="status-badge" id="statusText">🎮 Игра в разработке (Скоро выйдет)</div>
+            
+            <h1 id="mainTitle">Wheelie World</h1>
+            <p id="mainDesc">
+                Самый безумный симулятор трюков на питбайках и электросамокатах! 
+                Совершайте экстремальные вилли, прокачивайте байки и покоряйте улицы. Игра находится на стадии активной разработки, следите за обновлениями!
             </p>
 
-            <!-- Skachat tugmasi (shu yerga o'yin faylingiz havolasini qo'yasiz) -->
-            <a href="OYIN_FAYLINGIZ_HAVOLASI.zip" class="download-btn">📥 Скачать игру (ПК / Windows)</a>
-
-            <!-- Xarakteristika va Qurilmalar -->
-            <div class="specs-grid">
-                <div class="spec-item">
-                    <h4>🇷🇺 Язык интерфейса</h4>
-                    <p>Русский</p>
+            <!-- Dvigatel haqida ma'lumot -->
+            <div class="engine-info">
+                <div class="engine-box">
+                    <span>Игровой движок</span>
+                    <strong id="engineText">Godot Engine 4.x</strong>
                 </div>
-                <div class="spec-item">
-                    <h4>💻 Платформы</h4>
-                    <p>ПК (Windows, Linux)</p>
-                </div>
-                <div class="spec-item">
-                    <h4>⚙️ Движок</h4>
-                    <p>Godot Engine</p>
-                </div>
-                <div class="spec-item">
-                    <h4>📦 Размер файла</h4>
-                    <p>~50 MB</p>
+                <div class="engine-box">
+                    <span>Платформы</span>
+                    <strong id="platformText">ПК / Android</strong>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Pastki qism -->
+    <!-- Footer / Bog'lanish -->
     <footer>
-        <p>&copy; 2026 Моя Инди-Игра. Все права защищены. Сделано с помощью Godot & GitHub Pages.</p>
+        <p id="footerText">Связь с разработчиком / Официальный TikTok:</p>
+        <a href="https://www.tiktok.com/@wheelie_worlds" target="_blank" class="social-link">
+            <i class="fa-brands fa-tiktok"></i> @wheelie_worlds
+        </a>
     </footer>
 
+    <!-- JavaScript - Tilni almashtirish uchun -->
+    <script>
+        function changeLang(lang) {
+            const statusText = document.getElementById('statusText');
+            const mainDesc = document.getElementById('mainDesc');
+            const footerText = document.getElementById('footerText');
+            const platformText = document.getElementById('platformText');
+
+            if(lang === 'ru') {
+                statusText.innerText = "🎮 Игра в разработке (Скоро выйдет)";
+                mainDesc.innerText = "Самый безумный симулятор трюков на питбайках и электросамокатах! Совершайте экстремальные вилли, прокачивайте байки и покоряйте улицы. Игра находится на стадии активной разработки, следите за обновлениями!";
+                footerText.innerText = "Связь с разработчиком / Официальный TikTok:";
+                platformText.innerText = "ПК / Android";
+            } else if(lang === 'en') {
+                statusText.innerText = "🎮 Game in Development (Coming Soon)";
+                mainDesc.innerText = "The craziest stunt simulator on pitbikes and electric scooters! Perform extreme wheelies, upgrade bikes and conquer the streets. The game is under active development, stay tuned!";
+                footerText.innerText = "Contact Developer / Official TikTok:";
+                platformText.innerText = "PC / Android";
+            } else if(lang === 'ua') {
+                statusText.innerText = "🎮 Гра в розробці (Скоро вийде)";
+                mainDesc.innerText = "Найшаленіший симулятор трюків на пітбайках та електросамокатах! Виконуйте екстремальні віллі, прокачуйте байки та підкорюйте вулиці. Гра знаходиться на стадії активної розробки!";
+                footerText.innerText = "Зв'язок з розробником / Офіційний TikTok:";
+                platformText.innerText = "ПК / Android";
+            }
+        }
+    </script>
 </body>
 </html>
