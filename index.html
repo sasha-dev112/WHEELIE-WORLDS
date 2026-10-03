@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wheelie World | Официальный сайт игры</title>
+    <title>Wheelie World | Official Game Portal</title>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
-    <!-- FontAwesome ikonka uchun -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Ikonkalar -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -17,185 +17,271 @@
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            /* [35-45 qatorlar] Pitbike va elektro samokat stunt qilayotgan fon rasmi va qoraytirilgan qatlam */
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85)), 
-                        url('https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=1920&auto=format&fit=crop') no-repeat center center fixed;
-            background-size: cover;
+            font-family: 'Roboto', sans-serif;
+            background: radial-gradient(circle at center, #1b1b2f 0%, #0f0f1a 100%);
             color: #ffffff;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            overflow-x: hidden;
+            position: relative;
         }
 
-        /* Yuqori qism / Header */
+        /* Pitbike va elektro samokat stunt foni */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(15, 15, 26, 0.85), rgba(15, 15, 26, 0.95)),
+                        url('https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=1920&auto=format&fit=crop') no-repeat center center;
+            background-size: cover;
+            z-index: -1;
+            filter: contrast(1.2) brightness(0.7);
+        }
+
+        /* Header va Til almashtirish paneli */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 40px;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px 50px;
+            background: rgba(20, 20, 35, 0.6);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid rgba(255, 0, 127, 0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            z-index: 10;
         }
 
-        /* [60-70 qatorlar] Wheelie World nomi */
         .logo {
-            font-size: 2rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
             font-weight: 900;
-            background: linear-gradient(45deg, #ff007f, #00f2fe);
+            background: linear-gradient(45deg, #ff007f, #00f2fe, #f5af19);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            text-shadow: 0 0 20px rgba(255, 0, 127, 0.5);
         }
 
-        /* Til o'zgartirish paneli */
         .lang-switcher {
             display: flex;
-            gap: 10px;
+            gap: 12px;
         }
 
         .lang-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.2);
             color: white;
-            padding: 8px 12px;
-            border-radius: 8px;
+            padding: 8px 16px;
+            border-radius: 10px;
             cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
             font-weight: 700;
-            transition: 0.3s;
+            transition: all 0.3s ease;
         }
 
         .lang-btn:hover {
             background: #ff007f;
             border-color: #ff007f;
+            box-shadow: 0 0 15px #ff007f;
+            transform: translateY(-2px);
         }
 
-        /* Asosiy kontent */
+        /* Asosiy kontent konteyneri */
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: auto;
             padding: 40px 20px;
             text-align: center;
+            z-index: 5;
         }
 
         .hero-card {
-            background: rgba(20, 20, 30, 0.7);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 25px;
-            padding: 50px 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            background: rgba(25, 25, 45, 0.7);
+            backdrop-filter: blur(25px);
+            border: 2px solid rgba(0, 242, 254, 0.3);
+            border-radius: 30px;
+            padding: 50px 40px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7), inset 0 0 20px rgba(0, 242, 254, 0.05);
+            position: relative;
+            overflow: hidden;
         }
 
-        /* [85-110 qatorlar] Razrabotka statusi */
         .status-badge {
             display: inline-block;
-            background: linear-gradient(45deg, #f12711, #f5af19);
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
             color: white;
-            padding: 8px 20px;
+            padding: 10px 25px;
             border-radius: 50px;
+            font-family: 'Orbitron', sans-serif;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             text-transform: uppercase;
             margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(241, 39, 17, 0.4);
-            animation: pulse 2s infinite;
+            box-shadow: 0 5px 20px rgba(255, 65, 108, 0.5);
+            animation: neonPulse 2s infinite;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+        @keyframes neonPulse {
+            0% { transform: scale(1); box-shadow: 0 0 10px rgba(255,65,108,0.5); }
+            50% { transform: scale(1.03); box-shadow: 0 0 25px rgba(255,65,108,0.8); }
+            100% { transform: scale(1); box-shadow: 0 0 10px rgba(255,65,108,0.5); }
         }
 
         .hero-card h1 {
-            font-size: 2.8rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.2rem;
             margin-bottom: 15px;
             font-weight: 900;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(0,242,254,0.5);
         }
 
         .hero-card p {
-            font-size: 1.1rem;
-            color: #dcdde1;
-            line-height: 1.6;
+            font-size: 1.15rem;
+            color: #d1d8e0;
+            line-height: 1.8;
             margin-bottom: 30px;
         }
 
-        /* [130-150 qatorlar] Dvigatel va ma'lumotlar */
-        .engine-info {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-
-        .engine-box {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 15px 25px;
-            border-radius: 12px;
-            border-left: 4px solid #00f2fe;
+        /* --- O'YINNING OXIRGI UPDATE v.4.1 UCHUN MAXSUS BLOK --- */
+        .daily-update-box {
+            background: linear-gradient(135deg, rgba(0, 242, 254, 0.1), rgba(255, 0, 127, 0.1));
+            border: 2px dashed #00f2fe;
+            padding: 25px;
+            border-radius: 20px;
+            margin-bottom: 35px;
             text-align: left;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.15);
         }
 
-        .engine-box span {
+        .daily-update-box::before {
+            content: '🔥 HOT UPDATE';
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: #ff007f;
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .daily-update-box h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: #00f2fe;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .daily-update-box p {
+            font-size: 1rem;
+            color: #f1f2f6;
+            margin: 0;
+        }
+
+        /* Xarakteristika gridi */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .spec-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: left;
+            transition: 0.3s;
+        }
+
+        .spec-box:hover {
+            border-color: #ff007f;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 0, 127, 0.2);
+        }
+
+        .spec-box span {
             font-size: 0.8rem;
             color: #a4b0be;
             display: block;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            font-family: 'Orbitron', sans-serif;
         }
 
-        .engine-box strong {
-            font-size: 1.1rem;
+        .spec-box strong {
+            font-size: 1.2rem;
             color: #fff;
+            font-family: 'Orbitron', sans-serif;
         }
 
-        /* [165-180 qatorlar] Footer va TikTok bog'lanish */
+        /* Footer va TikTok */
         footer {
             text-align: center;
-            padding: 25px;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            background: rgba(15, 15, 25, 0.8);
+            backdrop-filter: blur(20px);
+            border-top: 2px solid rgba(0, 242, 254, 0.2);
+            z-index: 10;
+        }
+
+        .footer-text {
+            color: #a4b0be;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
         }
 
         .social-link {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             color: white;
             text-decoration: none;
-            background: #000;
-            border: 1px solid #333;
-            padding: 10px 20px;
+            background: linear-gradient(45deg, #000000, #222222);
+            border: 2px solid #ff0050;
+            padding: 12px 28px;
             border-radius: 50px;
-            font-weight: 600;
-            margin-top: 10px;
-            transition: 0.3s;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(255, 0, 80, 0.4);
         }
 
         .social-link:hover {
             background: #ff0050;
-            border-color: #ff0050;
-            box-shadow: 0 5px 15px rgba(255, 0, 80, 0.4);
+            border-color: #fff;
+            box-shadow: 0 0 30px #ff0050;
+            transform: scale(1.05);
         }
 
         .social-link i {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
         }
 
-        @media(max-width: 600px) {
-            .hero-card h1 { font-size: 2rem; }
-            header { padding: 15px 20px; }
+        @media(max-width: 768px) {
+            header { padding: 20px; }
             .logo { font-size: 1.5rem; }
+            .hero-card { padding: 30px 20px; }
+            .hero-card h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header / Sarlavha va Til menyusi -->
+    <!-- Header -->
     <header>
         <div class="logo">Wheelie World</div>
         <div class="lang-switcher">
@@ -205,63 +291,97 @@
         </div>
     </header>
 
-    <!-- Asosiy qism -->
+    <!-- Kontent -->
     <div class="container">
         <div class="hero-card">
-            <!-- O'yin holati -->
-            <div class="status-badge" id="statusText">🎮 Игра в разработке (Скоро выйдет)</div>
+            <div class="status-badge" id="statusText">🎮 Игра в разработке (Скоро релиз)</div>
             
             <h1 id="mainTitle">Wheelie World</h1>
             <p id="mainDesc">
-                Самый безумный симулятор трюков на питбайках и электросамокатах! 
-                Совершайте экстремальные вилли, прокачивайте байки и покоряйте улицы. Игра находится на стадии активной разработки, следите за обновлениями!
+                Самый экстремальный симулятор трюков на питбайках и электросамокатах! Дерзкие вилли, ночные улицы, полный тюнинг и адреналин. Проект находится в активной разработке, готовьтесь к взрывному релизу!
             </p>
 
-            <!-- Dvigatel haqida ma'lumot -->
-            <div class="engine-info">
-                <div class="engine-box">
-                    <span>Игровой движок</span>
-                    <strong id="engineText">Godot Engine 4.x</strong>
+            <!-- KUNLIK UPDATE v.4.1 BLOKI -->
+            <div class="daily-update-box">
+                <h3 id="updateHeader"><i class="fa-solid fa-rocket"></i> ЕЖЕДНЕВНЫЙ ПАТЧНОУТ: UPDATE v.4.1</h3>
+                <p id="updateDescText">Добавлена совершенно новая физика трюков для электросамокатов, ночной режим освещения улиц и кастомизация шлемов питбайкеров!</p>
+            </div>
+
+            <!-- Xarakteristika (Dvigatel: НЕИЗВЕСТНО) -->
+            <div class="specs-grid">
+                <div class="spec-box">
+                    <span id="engineLabel">Игровой движок</span>
+                    <strong id="engineText">НЕИЗВЕСТНО</strong>
                 </div>
-                <div class="engine-box">
-                    <span>Платформы</span>
+                <div class="spec-box">
+                    <span id="platformLabel">Платформы</span>
                     <strong id="platformText">ПК / Android</strong>
+                </div>
+                <div class="spec-box">
+                    <span id="statusLabel">Статус</span>
+                    <strong id="statusBoxText">Разработка</strong>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer / Bog'lanish -->
+    <!-- Footer -->
     <footer>
-        <p id="footerText">Связь с разработчиком / Официальный TikTok:</p>
+        <p class="footer-text" id="footerText">Официальный TikTok разработчика для связи:</p>
         <a href="https://www.tiktok.com/@wheelie_worlds" target="_blank" class="social-link">
             <i class="fa-brands fa-tiktok"></i> @wheelie_worlds
         </a>
     </footer>
 
-    <!-- JavaScript - Tilni almashtirish uchun -->
+    <!-- JavaScript: Til va v.4.1 yangilanishini boshqarish -->
     <script>
         function changeLang(lang) {
             const statusText = document.getElementById('statusText');
             const mainDesc = document.getElementById('mainDesc');
+            const updateHeader = document.getElementById('updateHeader');
+            const updateDescText = document.getElementById('updateDescText');
+            const engineLabel = document.getElementById('engineLabel');
+            const engineText = document.getElementById('engineText');
+            const platformLabel = document.getElementById('platformLabel');
+            const statusLabel = document.getElementById('statusLabel');
+            const statusBoxText = document.getElementById('statusBoxText');
             const footerText = document.getElementById('footerText');
-            const platformText = document.getElementById('platformText');
 
             if(lang === 'ru') {
-                statusText.innerText = "🎮 Игра в разработке (Скоро выйдет)";
-                mainDesc.innerText = "Самый безумный симулятор трюков на питбайках и электросамокатах! Совершайте экстремальные вилли, прокачивайте байки и покоряйте улицы. Игра находится на стадии активной разработки, следите за обновлениями!";
-                footerText.innerText = "Связь с разработчиком / Официальный TikTok:";
-                platformText.innerText = "ПК / Android";
-            } else if(lang === 'en') {
+                statusText.innerText = "🎮 Игра в разработке (Скоро релиз)";
+                mainDesc.innerText = "Самый экстремальный симулятор трюков на питбайках и электросамокатах! Дерзкие вилли, ночные улицы, полный тюнинг и адреналин. Проект находится в активной разработке, готовьтесь к взрывному релизу!";
+                updateHeader.innerHTML = '<i class="fa-solid fa-rocket"></i> ЕЖЕДНЕВНЫЙ ПАТЧНОУТ: UPDATE v.4.1';
+                updateDescText.innerText = "Добавлена совершенно новая физика трюков для электросамокатов, ночной режим освещения улиц и кастомизация шлемов питбайкеров!";
+                engineLabel.innerText = "Игровой движок";
+                engineText.innerText = "НЕИЗВЕСТНО";
+                platformLabel.innerText = "Платформы";
+                statusLabel.innerText = "Статус";
+                statusBoxText.innerText = "Разработка";
+                footerText.innerText = "Официальный TikTok разработчика для связи:";
+            } 
+            else if(lang === 'en') {
                 statusText.innerText = "🎮 Game in Development (Coming Soon)";
-                mainDesc.innerText = "The craziest stunt simulator on pitbikes and electric scooters! Perform extreme wheelies, upgrade bikes and conquer the streets. The game is under active development, stay tuned!";
-                footerText.innerText = "Contact Developer / Official TikTok:";
-                platformText.innerText = "PC / Android";
-            } else if(lang === 'ua') {
-                statusText.innerText = "🎮 Гра в розробці (Скоро вийде)";
-                mainDesc.innerText = "Найшаленіший симулятор трюків на пітбайках та електросамокатах! Виконуйте екстремальні віллі, прокачуйте байки та підкорюйте вулиці. Гра знаходиться на стадії активної розробки!";
-                footerText.innerText = "Зв'язок з розробником / Офіційний TikTok:";
-                platformText.innerText = "ПК / Android";
+                mainDesc.innerText = "The most extreme stunt simulator on pitbikes and electric scooters! Daring wheelies, night streets, full tuning and adrenaline. The project is under active development, get ready!";
+                updateHeader.innerHTML = '<i class="fa-solid fa-rocket"></i> DAILY PATCH NOTES: UPDATE v.4.1';
+                updateDescText.innerText = "Added brand new stunt physics for electric scooters, night street lighting mode, and pitbike helmet customization!";
+                engineLabel.innerText = "Game Engine";
+                engineText.innerText = "UNKNOWN";
+                platformLabel.innerText = "Platforms";
+                statusLabel.innerText = "Status";
+                statusBoxText.innerText = "Development";
+                footerText.innerText = "Official Developer TikTok for contact:";
+            } 
+            else if(lang === 'ua') {
+                statusText.innerText = "🎮 Гра в розробці (Скоро реліз)";
+                mainDesc.innerText = "Найекстремальніший симулятор трюків на пітбайках та електросамокатах! Зухвалі віллі, нічні вулиці, повний тюнінг та адреналін. Проєкт у активній розробці!";
+                updateHeader.innerHTML = '<i class="fa-solid fa-rocket"></i> ЩОДЕННИЙ ПАТЧНОУТ: UPDATE v.4.1';
+                updateDescText.innerText = "Додано абсолютно нову фізику трюків для електросамокатів, нічний режим освітлення вулиць та кастомізацію шоломів пітбайкерів!";
+                engineLabel.innerText = "Ігровий рушій";
+                engineText.innerText = "НЕВІДОМО";
+                platformLabel.innerText = "Платформи";
+                statusLabel.innerText = "Статус";
+                statusBoxText.innerText = "Розробка";
+                footerText.innerText = "Офіційний TikTok розробника для зв'язку:";
             }
         }
     </script>
