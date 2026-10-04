@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uz">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wheelie World | UPDATE v.4.2</title>
+    <title>Wheelie World | UPDATE v.4.2 Cyber Edition</title>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Orbitron:wght@400;600;800;900&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <!-- FontAwesome Ikonkalar -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --game-update-version: "UPDATE v.4.2";
             --neon-pink: #ff007f;
-            --neon-blue: #00f2fe;
+            --neon-cyan: #00f2fe;
             --neon-gold: #f5af19;
-            --dark-bg: #0b0b16;
+            --neon-purple: #9b51e0;
+            --bg-deep: #05050a;
         }
 
         * {
@@ -25,8 +25,8 @@
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
-            background: radial-gradient(circle at center, #16162c 0%, #0b0b16 100%);
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--bg-deep);
             color: #ffffff;
             min-height: 100vh;
             display: flex;
@@ -36,16 +36,16 @@
             position: relative;
         }
 
-        /* Cyberpunk va neon fon */
+        /* Cyberpunk fon effekti */
         body::before {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(11, 11, 22, 0.9), rgba(11, 11, 22, 0.95)),
-                        url('https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=1920&auto=format&fit=crop') no-repeat center center;
+            background: radial-gradient(circle at 50% 20%, #1a0b2e 0%, #05050a 80%),
+                        url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1920&auto=format&fit=crop') no-repeat center center;
             background-size: cover;
+            opacity: 0.35;
             z-index: -1;
-            filter: saturate(1.6) contrast(1.3);
         }
 
         /* Header / Navigatsiya */
@@ -53,78 +53,81 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 40px;
-            background: rgba(15, 15, 30, 0.9);
-            backdrop-filter: blur(25px);
-            border-bottom: 3px solid var(--neon-pink);
-            box-shadow: 0 10px 40px rgba(255, 0, 127, 0.3);
+            padding: 20px 50px;
+            background: rgba(10, 10, 20, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid var(--neon-pink);
+            box-shadow: 0 10px 30px rgba(255, 0, 127, 0.25);
             z-index: 100;
         }
 
         .logo-nav {
             display: flex;
             align-items: center;
-            gap: 25px;
+            gap: 40px;
         }
 
         .logo {
             font-family: 'Bangers', cursive;
-            font-size: 2.4rem;
+            font-size: 2.5rem;
             letter-spacing: 2px;
-            background: linear-gradient(45deg, var(--neon-pink), var(--neon-blue), var(--neon-gold));
+            background: linear-gradient(45deg, var(--neon-pink), var(--neon-cyan), var(--neon-gold));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 3px 3px 0px rgba(0,0,0,0.8);
+            text-shadow: 0 0 20px rgba(255,0,127,0.5);
         }
 
         .nav-menu {
             display: flex;
-            gap: 10px;
+            gap: 15px;
         }
 
         .nav-link {
-            background: none;
-            border: none;
-            color: #fff;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a4b0be;
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             cursor: pointer;
-            padding: 8px 12px;
+            padding: 10px 20px;
             border-radius: 12px;
-            transition: 0.3s;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
         }
 
         .nav-link:hover, .nav-link.active {
             background: var(--neon-pink);
+            color: #fff;
+            border-color: var(--neon-pink);
             box-shadow: 0 0 20px var(--neon-pink);
+            transform: translateY(-2px);
         }
 
         .header-right {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
         }
 
         .coin-balance {
             display: flex;
             align-items: center;
-            gap: 8px;
-            background: rgba(245, 175, 25, 0.15);
+            gap: 10px;
+            background: rgba(245, 175, 25, 0.1);
             border: 2px solid var(--neon-gold);
-            padding: 6px 16px;
-            border-radius: 50px;
+            padding: 8px 20px;
+            border-radius: 30px;
             font-family: 'Orbitron', sans-serif;
             font-weight: 900;
             color: var(--neon-gold);
-            box-shadow: 0 0 15px rgba(245, 175, 25, 0.4);
+            box-shadow: 0 0 15px rgba(245, 175, 25, 0.3);
         }
 
         .coin-balance i {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             animation: spinCoin 3s linear infinite;
         }
 
@@ -134,28 +137,29 @@
         }
 
         .user-auth-btn {
-            background: linear-gradient(45deg, var(--neon-blue), #4facfe);
+            background: linear-gradient(45deg, var(--neon-cyan), #4facfe);
             border: none;
             color: #000;
-            padding: 8px 18px;
+            padding: 10px 24px;
             border-radius: 12px;
             font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
+            font-weight: 900;
             cursor: pointer;
             transition: 0.3s;
+            box-shadow: 0 0 15px rgba(0,242,254,0.4);
         }
 
         .user-auth-btn:hover {
-            box-shadow: 0 0 20px var(--neon-blue);
+            box-shadow: 0 0 25px var(--neon-cyan);
             transform: scale(1.05);
         }
 
-        /* Sahifalar */
+        /* Sahifalar konteyneri */
         .page-content {
             display: none;
-            max-width: 1100px;
+            max-width: 1200px;
             margin: auto;
-            padding: 40px 20px;
+            padding: 50px 20px;
             text-align: center;
             z-index: 10;
             width: 100%;
@@ -163,84 +167,65 @@
 
         .page-content.active-page {
             display: block;
-            animation: fadeIn 0.4s ease-in-out;
+            animation: fadeInPage 0.5s ease-in-out;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
+        @keyframes fadeInPage {
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .hero-card {
-            background: rgba(20, 20, 40, 0.85);
+            background: rgba(15, 15, 30, 0.9);
             backdrop-filter: blur(30px);
-            border: 3px solid var(--neon-blue);
+            border: 2px solid var(--neon-cyan);
             border-radius: 35px;
-            padding: 45px 35px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9), inset 0 0 30px rgba(0, 242, 254, 0.15);
-            position: relative;
+            padding: 50px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9), inset 0 0 40px rgba(0, 242, 254, 0.1);
         }
 
-        .status-badge {
+        .version-badge {
             display: inline-block;
             background: linear-gradient(45deg, #ff416c, #ff4b2b);
             color: white;
-            padding: 10px 25px;
+            padding: 8px 25px;
             border-radius: 50px;
             font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
+            font-weight: 800;
             font-size: 0.95rem;
             text-transform: uppercase;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 25px rgba(255, 65, 108, 0.6);
+            margin-bottom: 25px;
+            box-shadow: 0 0 20px rgba(255, 65, 108, 0.6);
         }
 
         .hero-card h1 {
             font-family: 'Bangers', cursive;
-            font-size: 4rem;
-            margin-bottom: 15px;
+            font-size: 4.5rem;
+            margin-bottom: 20px;
             letter-spacing: 2px;
             color: #ffffff;
             text-shadow: 4px 4px 0px var(--neon-pink);
         }
 
         .hero-card p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: #d1d8e0;
             line-height: 1.8;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
 
-        /* Update Bloki v.4.2 */
-        .daily-update-box {
-            background: linear-gradient(135deg, rgba(0, 242, 254, 0.15), rgba(255, 0, 127, 0.15));
-            border: 2px dashed var(--neon-blue);
+        .update-log-box {
+            background: rgba(0, 242, 254, 0.05);
+            border: 1px dashed var(--neon-cyan);
             padding: 25px;
             border-radius: 20px;
             margin-bottom: 35px;
             text-align: left;
-            position: relative;
-            box-shadow: 0 0 30px rgba(0, 242, 254, 0.3);
         }
 
-        .daily-update-box::before {
-            content: "UPDATE v.4.2";
-            position: absolute;
-            top: -12px;
-            right: 20px;
-            background: var(--neon-pink);
-            color: white;
+        .update-log-box h3 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 0.75rem;
-            padding: 4px 14px;
-            border-radius: 20px;
-            font-weight: 700;
-            box-shadow: 0 0 15px var(--neon-pink);
-        }
-
-        .daily-update-box h3 {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--neon-blue);
+            color: var(--neon-cyan);
             font-size: 1.2rem;
             margin-bottom: 10px;
             display: flex;
@@ -248,93 +233,85 @@
             gap: 10px;
         }
 
-        .daily-update-box p {
-            font-size: 1rem;
-            color: #f1f2f6;
-            margin: 0;
-        }
-
-        /* Promokod paneli */
-        .promo-container {
-            background: rgba(20,20,35,0.85);
-            border: 2px solid var(--neon-blue);
+        /* Promokod yashirin qism */
+        .promo-box-hidden {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 20px;
             border-radius: 20px;
-            margin-bottom: 35px;
             display: flex;
             justify-content: center;
             gap: 15px;
-            align-items: center;
-            box-shadow: 0 0 20px rgba(0,242,254,0.2);
+            max-width: 500px;
+            margin: auto;
         }
 
-        .promo-input {
-            background: rgba(255,255,255,0.07);
-            border: 1px solid rgba(255,255,255,0.2);
+        .promo-input-cyber {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             padding: 12px 20px;
-            border-radius: 10px;
+            border-radius: 12px;
             color: white;
             font-family: 'Orbitron', sans-serif;
             font-size: 1rem;
             outline: none;
-            width: 280px;
+            width: 100%;
         }
 
-        .promo-input:focus {
-            border-color: var(--neon-blue);
-            box-shadow: 0 0 15px rgba(0,242,254,0.5);
+        .promo-input-cyber:focus {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
         }
 
-        .promo-btn {
-            background: linear-gradient(45deg, var(--neon-blue), #4facfe);
+        .cyber-btn {
+            background: linear-gradient(45deg, var(--neon-pink), var(--neon-purple));
             border: none;
-            color: #000;
+            color: white;
             padding: 12px 25px;
-            border-radius: 10px;
+            border-radius: 12px;
             font-family: 'Orbitron', sans-serif;
             font-weight: 900;
             cursor: pointer;
             transition: 0.3s;
+            white-space: nowrap;
         }
 
-        .promo-btn:hover {
-            box-shadow: 0 0 20px var(--neon-blue);
+        .cyber-btn:hover {
+            box-shadow: 0 0 20px var(--neon-pink);
             transform: scale(1.05);
         }
 
         /* ==========================================
            CASE / BOX PANEL SAHIFASI
            ================================---------- */
-        .case-section-title {
+        .case-title {
             font-family: 'Bangers', cursive;
-            font-size: 3rem;
-            margin-bottom: 15px;
+            font-size: 3.5rem;
             color: var(--neon-gold);
+            margin-bottom: 20px;
             text-shadow: 3px 3px 0px #000;
         }
 
-        .case-main-card {
-            background: rgba(25, 25, 45, 0.95);
-            border: 4px solid var(--neon-gold);
+        .case-card-main {
+            background: rgba(15, 15, 30, 0.95);
+            border: 3px solid var(--neon-gold);
             border-radius: 35px;
-            padding: 40px;
-            max-width: 650px;
+            padding: 45px;
+            max-width: 800px;
             margin: auto;
-            text-align: center;
-            box-shadow: 0 0 50px rgba(245, 175, 25, 0.35);
+            box-shadow: 0 0 50px rgba(245, 175, 25, 0.25);
             position: relative;
-            overflow: hidden;
         }
 
-        .case-icon-anim {
-            font-size: 6rem;
+        .case-icon-box {
+            font-size: 5rem;
             color: var(--neon-gold);
-            margin-bottom: 20px;
-            animation: bounceCase 2s infinite ease-in-out;
-            text-shadow: 0 0 30px rgba(245, 175, 25, 0.6);
+            margin-bottom: 15px;
+            animation: boxFloat 2s infinite ease-in-out;
+            text-shadow: 0 0 30px rgba(245, 175, 25, 0.5);
         }
 
-        @keyframes bounceCase {
+        @keyframes boxFloat {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
         }
@@ -342,249 +319,250 @@
         .case-items-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin: 25px 0;
+            gap: 20px;
+            margin: 30px 0;
         }
 
-        .case-item-preview {
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(255, 255, 255, 0.15);
-            border-radius: 18px;
-            padding: 15px 10px;
+        .case-item-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 20px 15px;
             text-align: center;
+            transition: 0.3s;
         }
 
-        .case-item-preview img {
+        .case-item-box:hover {
+            border-color: var(--neon-cyan);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 242, 254, 0.2);
+        }
+
+        .case-item-box img {
             width: 100%;
-            height: 90px;
+            height: 120px;
             object-fit: contain;
-            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.8));
-            margin-bottom: 10px;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.8));
+            margin-bottom: 15px;
         }
 
-        .case-item-preview h4 {
+        .case-item-box h4 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
+            font-size: 1rem;
             color: #fff;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
 
-        .chance-text {
-            font-size: 0.8rem;
+        .chance-badge {
+            font-size: 0.85rem;
             color: var(--neon-gold);
             font-weight: bold;
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
 
-        /* Olov rangdagi LIMITED effekti */
-        .badge-limited {
+        /* 1. Hello Kitty va Kuromi uchun Olov rangli LIMITED effekti */
+        .effect-limited {
             display: inline-block;
             font-family: 'Orbitron', sans-serif;
             font-size: 0.75rem;
             font-weight: 900;
-            color: #ff512f;
+            color: #ff4b2b;
             text-transform: uppercase;
-            animation: fireGlow 1.5s infinite alternate;
+            animation: fireEffect 1.5s infinite alternate;
         }
 
-        @keyframes fireGlow {
-            0% { text-shadow: 0 0 5px #ff416c, 0 0 10px #ff4b2b; color: #ff4b2b; }
+        @keyframes fireEffect {
+            0% { text-shadow: 0 0 5px #ff416c, 0 0 10px #ff4b2b; color: #ff512f; }
             100% { text-shadow: 0 0 15px #f5af19, 0 0 25px #ff007f; color: #ffea00; }
         }
 
-        /* Qora va oq rangdagi SECRET effekti */
-        .badge-secret {
+        /* 2. Pitbike uchun Qora va oq rangdagi SECRET effekti */
+        .effect-secret {
             display: inline-block;
             font-family: 'Orbitron', sans-serif;
             font-size: 0.75rem;
             font-weight: 900;
-            animation: secretGlow 1.2s infinite alternate;
+            animation: secretEffect 1.2s infinite alternate;
         }
 
-        @keyframes secretGlow {
+        @keyframes secretEffect {
             0% { color: #ffffff; text-shadow: 0 0 5px #000, 0 0 10px #ffffff; }
             100% { color: #888888; text-shadow: 0 0 15px #ffffff, 0 0 25px #000000; }
         }
 
-        .case-open-btn {
+        .open-case-btn {
             background: linear-gradient(45deg, var(--neon-gold), #ff416c);
             border: none;
             color: white;
-            padding: 15px 35px;
+            padding: 16px 40px;
             border-radius: 15px;
             font-family: 'Orbitron', sans-serif;
             font-weight: 900;
             font-size: 1.2rem;
             cursor: pointer;
             transition: 0.3s;
-            box-shadow: 0 5px 25px rgba(245, 175, 25, 0.4);
+            box-shadow: 0 5px 30px rgba(245, 175, 25, 0.4);
             width: 100%;
         }
 
-        .case-open-btn:hover {
-            transform: scale(1.03);
-            box-shadow: 0 0 35px var(--neon-gold);
+        .open-case-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 40px var(--neon-gold);
         }
 
-        /* Case Result Modal */
-        .case-result-box {
+        .case-result-display {
             display: none;
-            margin-top: 25px;
-            background: rgba(0, 0, 0, 0.6);
+            margin-top: 30px;
+            background: rgba(0, 0, 0, 0.7);
             border: 2px solid var(--neon-gold);
-            padding: 20px;
+            padding: 25px;
             border-radius: 20px;
-            animation: fadeIn 0.4s ease;
+            animation: fadeInPage 0.4s ease;
         }
 
-        .case-result-box img {
-            max-height: 140px;
+        .case-result-display img {
+            max-height: 160px;
             margin-bottom: 15px;
-            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.8));
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.9));
         }
 
         /* ==========================================
            PROFIL SAHIFASI
            ================================---------- */
-        .profile-card {
-            background: rgba(20, 20, 35, 0.95);
-            border: 3px solid var(--neon-blue);
-            border-radius: 30px;
-            padding: 40px;
+        .profile-card-cyber {
+            background: rgba(15, 15, 30, 0.95);
+            border: 3px solid var(--neon-cyan);
+            border-radius: 35px;
+            padding: 45px;
             max-width: 500px;
             margin: auto;
             text-align: center;
-            box-shadow: 0 0 40px rgba(0,242,254,0.3);
+            box-shadow: 0 0 50px rgba(0, 242, 254, 0.25);
         }
 
-        .profile-avatar {
-            font-size: 5rem;
-            color: var(--neon-blue);
+        .profile-avatar-icon {
+            font-size: 6rem;
+            color: var(--neon-cyan);
             margin-bottom: 20px;
-            text-shadow: 0 0 20px rgba(0,242,254,0.6);
+            text-shadow: 0 0 30px rgba(0, 242, 254, 0.6);
         }
 
-        .profile-card h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2rem;
-            margin-bottom: 15px;
-            color: #fff;
-        }
-
-        .profile-info-box {
-            background: rgba(255,255,255,0.05);
-            padding: 15px;
+        .profile-info-row {
+            background: rgba(255, 255, 255, 0.04);
+            padding: 18px 25px;
             border-radius: 15px;
             margin-bottom: 20px;
             font-family: 'Orbitron', sans-serif;
             font-size: 1.1rem;
-            color: var(--neon-gold);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        .logout-btn {
+        .logout-cyber-btn {
             background: #ff416c;
             border: none;
             color: white;
-            padding: 10px 25px;
+            padding: 12px 30px;
             border-radius: 12px;
             font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
+            font-weight: 800;
             cursor: pointer;
             transition: 0.3s;
+            width: 100%;
         }
 
-        .logout-btn:hover {
-            box-shadow: 0 0 15px #ff416c;
+        .logout-cyber-btn:hover {
+            box-shadow: 0 0 20px #ff416c;
         }
 
         /* ==========================================
-           MODAL OYNALAR (REGISTER, LOGIN, ALERT)
+           MODAL OYNALAR (LOGIN & REGISTER)
            ================================---------- */
-        .modal-overlay {
+        .modal-overlay-cyber {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(12px);
+            background: rgba(5, 5, 10, 0.9);
+            backdrop-filter: blur(15px);
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 1000;
             opacity: 0;
             pointer-events: none;
-            transition: 0.3s ease;
+            transition: 0.4s ease;
         }
 
-        .modal-overlay.active {
+        .modal-overlay-cyber.active {
             opacity: 1;
             pointer-events: auto;
         }
 
-        .modal-box {
-            background: linear-gradient(135deg, #1e1e3f, #0f0f1a);
+        .modal-box-cyber {
+            background: linear-gradient(135deg, #15152b, #0a0a14);
             border: 3px solid var(--neon-pink);
-            border-radius: 25px;
-            padding: 40px;
+            border-radius: 30px;
+            padding: 45px;
             width: 90%;
-            max-width: 420px;
+            max-width: 440px;
             text-align: center;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.9), 0 0 35px rgba(255,0,127,0.4);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.9), 0 0 40px rgba(255,0,127,0.3);
             transform: scale(0.8);
-            transition: 0.3s ease;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .modal-overlay.active .modal-box {
+        .modal-overlay-cyber.active .modal-box-cyber {
             transform: scale(1);
         }
 
-        .modal-box i.main-icon {
-            font-size: 3.5rem;
-            color: #ff416c;
+        .modal-box-cyber i.header-icon {
+            font-size: 4rem;
+            color: var(--neon-cyan);
             margin-bottom: 20px;
-            text-shadow: 0 0 20px rgba(255, 65, 108, 0.6);
+            text-shadow: 0 0 25px rgba(0, 242, 254, 0.5);
         }
 
-        .modal-box h3 {
+        .modal-box-cyber h3 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+            font-size: 1.8rem;
+            margin-bottom: 12px;
             color: #fff;
         }
 
-        .modal-box p {
-            color: #d1d8e0;
+        .modal-box-cyber p {
+            color: #a4b0be;
             font-size: 1rem;
             margin-bottom: 25px;
             line-height: 1.5;
         }
 
-        .modal-input {
+        .modal-input-cyber {
             width: 100%;
-            background: rgba(255,255,255,0.07);
-            border: 1px solid rgba(255,255,255,0.2);
-            padding: 12px 18px;
-            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 14px 20px;
+            border-radius: 14px;
             color: white;
             font-family: 'Orbitron', sans-serif;
             font-size: 1rem;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             outline: none;
+            transition: 0.3s;
         }
 
-        .modal-input:focus {
-            border-color: var(--neon-blue);
-            box-shadow: 0 0 10px rgba(0,242,254,0.4);
+        .modal-input-cyber:focus {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
         }
 
-        .modal-btn {
-            background: linear-gradient(45deg, var(--neon-blue), #4facfe);
+        .modal-submit-btn {
+            background: linear-gradient(45deg, var(--neon-cyan), #4facfe);
             border: none;
             color: #000;
-            padding: 12px 30px;
-            border-radius: 12px;
+            padding: 14px;
+            border-radius: 14px;
             font-family: 'Orbitron', sans-serif;
             font-weight: 900;
             font-size: 1.1rem;
@@ -592,69 +570,64 @@
             width: 100%;
             transition: 0.3s;
             box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+            margin-top: 10px;
         }
 
-        .modal-btn:hover {
-            box-shadow: 0 0 30px var(--neon-blue);
+        .modal-submit-btn:hover {
+            box-shadow: 0 0 30px var(--neon-cyan);
             transform: scale(1.02);
         }
 
-        .modal-switch-text {
-            margin-top: 15px;
-            font-size: 0.9rem;
+        .modal-switch-link {
+            margin-top: 20px;
+            font-size: 0.95rem;
             color: #a4b0be;
             cursor: pointer;
         }
 
-        .modal-switch-text span {
-            color: var(--neon-blue);
+        .modal-switch-link span {
+            color: var(--neon-cyan);
             font-weight: bold;
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 25px;
-            background: rgba(15, 15, 25, 0.9);
+            padding: 30px;
+            background: rgba(10, 10, 20, 0.95);
             backdrop-filter: blur(20px);
-            border-top: 2px solid rgba(0, 242, 254, 0.3);
+            border-top: 2px solid rgba(0, 242, 254, 0.2);
             z-index: 10;
         }
 
-        .footer-text {
-            color: #a4b0be;
-            font-size: 0.95rem;
-            margin-bottom: 10px;
-        }
-
-        .social-link {
+        .social-link-cyber {
             display: inline-flex;
             align-items: center;
             gap: 12px;
             color: white;
             text-decoration: none;
-            background: linear-gradient(45deg, #000000, #222222);
-            border: 2px solid #ff0050;
-            padding: 10px 25px;
+            background: #000;
+            border: 2px solid var(--neon-pink);
+            padding: 12px 30px;
             border-radius: 50px;
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
             font-size: 1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(255, 0, 80, 0.4);
+            box-shadow: 0 0 20px rgba(255, 0, 127, 0.4);
+            margin-top: 10px;
         }
 
-        .social-link:hover {
-            background: #ff0050;
-            border-color: #fff;
-            box-shadow: 0 0 30px #ff0050;
+        .social-link-cyber:hover {
+            background: var(--neon-pink);
+            box-shadow: 0 0 35px var(--neon-pink);
             transform: scale(1.05);
         }
 
         @media(max-width: 768px) {
             header { padding: 15px 20px; flex-direction: column; gap: 15px; }
-            .logo-nav { flex-direction: column; gap: 10px; }
-            .hero-card h1 { font-size: 2.8rem; }
+            .logo-nav { flex-direction: column; gap: 15px; }
+            .hero-card h1 { font-size: 3rem; }
             .case-items-grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -667,143 +640,142 @@
             <div class="logo">Wheelie World</div>
             <nav class="nav-menu">
                 <button class="nav-link active" onclick="switchPage('home', this)" id="navHomeBtn">
-                    <i class="fa-solid fa-house"></i> Главная
+                    <i class="fa-solid fa-house"></i> Asosiy
                 </button>
                 <button class="nav-link" onclick="switchPage('case', this)" id="navCaseBtn">
                     <i class="fa-solid fa-box-open"></i> Кейсы
                 </button>
                 <button class="nav-link" onclick="switchPage('profile', this)" id="navProfileBtn">
-                    <i class="fa-solid fa-user"></i> Профиль
+                    <i class="fa-solid fa-user"></i> Profil
                 </button>
             </nav>
         </div>
         <div class="header-right">
-            <!-- Tanga Balansi -->
             <div class="coin-balance">
                 <i class="fa-solid fa-coins"></i> <span id="userCoinsDisplay">0</span>
             </div>
-            <!-- Auth / Profil tugmasi -->
-            <button class="user-auth-btn" id="authHeaderBtn" onclick="openAuthModal()">Войти</button>
+            <button class="user-auth-btn" id="authHeaderBtn" onclick="openAuthModal()">Kirish</button>
         </div>
     </header>
 
     <!-- 1. ASOSIY SAHIFA -->
     <div id="homePage" class="page-content active-page">
         <div class="hero-card">
-            <div class="status-badge">🎮 NEW UPDATE v.4.2</div>
+            <div class="version-badge">🚀 NEW UPDATE v.4.2</div>
             
             <h1>Wheelie World</h1>
             <p>
-                Самый экстремальный симулятор трюков на питбайках и электросамокатах! Открывайте эксклюзивные кейсы, прокачивайте уникальные байки и доминируйте на ночных улицах.
+                Eng so‘nggi kibersport darajasidagi trik va poyga simulyatoriga xush kelibsiz! Noyob keyslarni oching, eksklyuziv transportlarni qo‘lga kiriting va yetakchiga aylaning.
             </p>
 
-            <!-- Update Bloki v.4.2 -->
-            <div class="daily-update-box">
-                <h3><i class="fa-solid fa-rocket"></i> ОБНОВЛЕНИЕ v.4.2:</h3>
-                <p>Добавлены уникальные кейсы с редкими скутерами Hello Kitty, Kuromi и секретным Питбайком! Исправлена система авторизации и баланса.</p>
+            <div class="update-log-box">
+                <h3><i class="fa-solid fa-bolt"></i> UPDATE v.4.2 YANGILIKLARI:</h3>
+                <p>Xavfsizlik tizimi yaxshilandi, har bir foydalanuvchi uchun alohida shaxsiy bazaviy hisoblar joriy etildi. Yangi maxsus keyslar va transportlar qo‘shildi!</p>
             </div>
 
-            <!-- Promokod Kiritish Joyi -->
-            <div class="promo-container">
-                <input type="text" id="promoInputCode" class="promo-input" placeholder="Введите промокод (vipersonic / 3futfut3)...">
-                <button class="promo-btn" onclick="applyPromoCode()">Активировать</button>
+            <!-- Promokod kiritish (sokin va yashirin ko'rinishda) -->
+            <div class="promo-box-hidden">
+                <input type="text" id="promoInputCode" class="promo-input-cyber" placeholder="Promokodni kiriting...">
+                <button class="cyber-btn" onclick="applyPromoCode()">OK</button>
             </div>
         </div>
     </div>
 
     <!-- 2. CASE / BOX SAHIFASI -->
     <div id="casePage" class="page-content">
-        <h2 class="case-section-title">ЛЕГЕНДАРНЫЙ КЕЙС</h2>
-        <div class="case-main-card">
-            <div class="case-icon-anim"><i class="fa-solid fa-box-open"></i></div>
-            <h3 style="font-family: 'Orbitron'; font-size: 1.5rem; margin-bottom: 10px;">Stunt Mystery Box</h3>
-            <p style="color: #a4b0be; margin-bottom: 20px;">Стоимость открытия: <strong style="color: var(--neon-gold);">1000 Coins</strong></p>
+        <h2 class="case-title">CYBER MYSTERY BOX</h2>
+        <div class="case-card-main">
+            <div class="case-icon-box"><i class="fa-solid fa-box-open"></i></div>
+            <h3 style="font-family: 'Orbitron'; font-size: 1.6rem; margin-bottom: 10px;">Exclusive Stunt Case</h3>
+            <p style="color: #a4b0be; margin-bottom: 25px;">Narxi: <strong style="color: var(--neon-gold);">1000 Coins</strong></p>
 
-            <!-- 3 ta narsa gridi -->
+            <!-- 3 ta narsa aniq rasmlari va talablari bilan -->
             <div class="case-items-grid">
                 <!-- 1. Hello Kitty -->
-                <div class="case-item-preview">
-                    <img src="https://images.prom.ua/5892976105_w1280_h640_5892976105.webp" alt="Hello Kitty Scooter">
+                <div class="case-item-box">
+                    <img src="f58946c3-60a5-45c2-b8e7-30c741060809.jpg" alt="Hello Kitty Scooter">
                     <h4>Hello Kitty</h4>
-                    <span class="chance-text">Шанс: 65%</span>
-                    <span style="font-size: 0.75rem; color: #a4b0be; display:block;">95 km/h</span>
-                    <span class="badge-limited">LIMITED</span>
+                    <span class="chance-badge">Tushish: 65%</span>
+                    <span style="font-size: 0.8rem; color: #a4b0be; display:block; margin-bottom: 5px;">Max speed: 95km/h</span>
+                    <span class="effect-limited">LIMITED</span>
                 </div>
                 <!-- 2. Kuromi -->
-                <div class="case-item-preview">
-                    <img src="https://images.prom.ua/5892976105_w1280_h640_5892976105.webp" alt="Kuromi Scooter" style="filter: hue-rotate(240deg);">
+                <div class="case-item-box">
+                    <img src="36e623ff-0afb-4f33-955d-5b054d783296.jpg" alt="Kuromi Scooter">
                     <h4>Kuromi</h4>
-                    <span class="chance-text">Шанс: 50%</span>
-                    <span style="font-size: 0.75rem; color: #a4b0be; display:block;">98 km/h</span>
-                    <span class="badge-limited">LIMITED</span>
+                    <span class="chance-badge">Tushish: 50%</span>
+                    <span style="font-size: 0.8rem; color: #a4b0be; display:block; margin-bottom: 5px;">Max speed: 98km/h</span>
+                    <span class="effect-limited">LIMITED</span>
                 </div>
                 <!-- 3. Pitbike -->
-                <div class="case-item-preview">
-                    <img src="https://images.prom.ua/5892976105_w1280_h640_5892976105.webp" alt="Pitbike Secret" style="filter: grayscale(100%) contrast(200%);">
-                    <h4>Pitbike Stunt</h4>
-                    <span class="chance-text">Шанс: 35%</span>
-                    <span style="font-size: 0.75rem; color: #a4b0be; display:block;">109 km/h</span>
-                    <span class="badge-secret">SECRET</span>
+                <div class="case-item-box">
+                    <img src="4661a65d-50c0-47a0-9215-815876f0c79b.jpg" alt="Pitbike Secret">
+                    <h4>Pitbike</h4>
+                    <span class="chance-badge">Tushish: 35%</span>
+                    <span style="font-size: 0.8rem; color: #a4b0be; display:block; margin-bottom: 5px;">Max speed: 109km/h</span>
+                    <span class="effect-secret">SECRET</span>
                 </div>
             </div>
 
-            <button class="case-open-btn" onclick="openCase()">ОТКРЫТЬ КЕЙС (1000 🪙)</button>
+            <button class="open-case-btn" onclick="openCase()">KЕYSNI OCHISH (1000 🪙)</button>
 
-            <!-- Natija chiqadigan joy -->
-            <div class="case-result-box" id="caseResultBox">
-                <h3 id="resultTitle" style="color: var(--neon-gold); font-family: 'Orbitron'; margin-bottom: 10px;">Вы выиграли!</h3>
+            <!-- Natija ekrani -->
+            <div class="case-result-display" id="caseResultBox">
+                <h3 style="color: var(--neon-gold); font-family: 'Orbitron'; margin-bottom: 10px;">Tabriklaymiz, yutib oldingiz!</h3>
                 <img id="resultImg" src="" alt="Prize">
-                <h4 id="resultName" style="font-family: 'Orbitron'; font-size: 1.2rem; color: #fff;"></h4>
-                <p id="resultDesc" style="margin-top: 5px;"></p>
+                <h4 id="resultName" style="font-family: 'Orbitron'; font-size: 1.3rem; color: #fff;"></h4>
+                <p id="resultDesc" style="margin-top: 8px; color: var(--neon-cyan); font-family: 'Orbitron';"></p>
             </div>
         </div>
     </div>
 
     <!-- 3. PROFIL SAHIFASI -->
     <div id="profilePage" class="page-content">
-        <div class="profile-card">
-            <div class="profile-avatar"><i class="fa-solid fa-user-ninja"></i></div>
-            <h2 id="profileUsernameDisplay">GamerName</h2>
-            <div class="profile-info-box">
-                <span>Ваш баланс:</span>
-                <strong id="profileCoinsVal">0 Coins</strong>
+        <div class="profile-card-cyber">
+            <div class="profile-avatar-icon"><i class="fa-solid fa-user-astronaut"></i></div>
+            <h2 id="profileUsernameDisplay" style="font-family: 'Orbitron'; font-size: 2rem; margin-bottom: 20px;">Gamer</h2>
+            
+            <div class="profile-info-row">
+                <span>Shaxsiy balans:</span>
+                <strong id="profileCoinsVal" style="color: var(--neon-gold);">0 Coins</strong>
             </div>
-            <button class="logout-btn" onclick="logoutUser()">Выйти из аккаунта</button>
+
+            <button class="logout-cyber-btn" onclick="logoutUser()">Akkauntdan chiqish</button>
         </div>
     </div>
 
-    <!-- Modal Oyna: REGISTER / LOGIN -->
-    <div class="modal-overlay" id="authModal">
-        <div class="modal-box">
-            <i class="fa-solid fa-user-shield main-icon" style="color: var(--neon-blue);"></i>
-            <h3 id="authModalTitle">Регистрация в игре</h3>
-            <p id="authModalDesc">Введите уникальный логин и пароль. Если аккаунт уже существует, используйте вкладку входа.</p>
+    <!-- MODAL: LOGIN / REGISTER -->
+    <div class="modal-overlay-cyber" id="authModal">
+        <div class="modal-box-cyber">
+            <i class="fa-solid fa-fingerprint header-icon"></i>
+            <h3 id="authModalTitle">Ro'yxatdan o'tish</h3>
+            <p id="authModalDesc">Faqat ism va parol orqali shaxsiy akkaunt yarating. Har bir foydalanuvchi o'z balansiga ega bo'ladi.</p>
             
-            <input type="text" id="authUsernameInput" class="modal-input" placeholder="Имя (Логин)...">
-            <input type="password" id="authPasswordInput" class="modal-input" placeholder="Пароль...">
+            <input type="text" id="authUsernameInput" class="modal-input-cyber" placeholder="Ism (Login)...">
+            <input type="password" id="authPasswordInput" class="modal-input-cyber" placeholder="Parol...">
             
-            <button class="modal-btn" id="authSubmitBtn" onclick="handleAuthSubmit()">Зарегистрироваться</button>
-            <div class="modal-switch-text" id="authSwitchText" onclick="toggleAuthMode()">
-                Уже есть аккаунт? <span>Войти</span>
+            <button class="modal-submit-btn" id="authSubmitBtn" onclick="handleAuthSubmit()">Ro'yxatdan o'tish</button>
+            
+            <div class="modal-switch-link" id="authSwitchText" onclick="toggleAuthMode()">
+                Akkauntingiz bormi? <span>Kirish</span>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p class="footer-text">Официальный TikTok разработчика для связи:</p>
-        <a href="https://www.tiktok.com/@wheelie_worlds" target="_blank" class="social-link">
+        <p style="color: #a4b0be; font-size: 0.95rem;">Rasmiy TikTok sahifamiz:</p>
+        <a href="https://www.tiktok.com/@wheelie_worlds" target="_blank" class="social-link-cyber">
             <i class="fa-brands fa-tiktok"></i> @wheelie_worlds
         </a>
     </footer>
 
     <!-- JavaScript Scriptlar -->
     <script>
-        // Foydalanuvchilar bazasini LocalStorage dan olish
-        let usersDB = JSON.parse(localStorage.getItem('ww_users_db')) || {};
-        let currentUsername = localStorage.getItem('ww_logged_user') || null;
+        // Foydalanuvchilar bazasi va sessiyani LocalStorage orqali boshqarish
+        let usersDB = JSON.parse(localStorage.getItem('ww_users_db_v4')) || {};
+        let currentUsername = localStorage.getItem('ww_logged_user_v4') || null;
 
-        // Joriy foydalanuvchi obyektini olish
         function getCurrentUser() {
             if (currentUsername && usersDB[currentUsername]) {
                 return usersDB[currentUsername];
@@ -811,20 +783,19 @@
             return null;
         }
 
-        // Ma'lumotlarni saqlash
         function saveDB() {
-            localStorage.setItem('ww_users_db', JSON.stringify(usersDB));
+            localStorage.setItem('ww_users_db_v4', JSON.stringify(usersDB));
             if (currentUsername) {
-                localStorage.setItem('ww_logged_user', currentUsername);
+                localStorage.setItem('ww_logged_user_v4', currentUsername);
             } else {
-                localStorage.removeItem('ww_logged_user');
+                localStorage.removeItem('ww_logged_user_v4');
             }
         }
 
         let isLoginMode = false;
-        let usedPromoCodes = JSON.parse(localStorage.getItem('ww_used_promos')) || {};
+        let usedPromoCodes = JSON.parse(localStorage.getItem('ww_used_promos_v4')) || {};
 
-        // Har sekundda balansni yangilab turish
+        // Balansni dinamik yangilab turish
         setInterval(() => {
             let user = getCurrentUser();
             if (user) {
@@ -837,7 +808,7 @@
 
         window.onload = function() {
             updateAuthUI();
-            if(!currentUsername) {
+            if (!currentUsername) {
                 openAuthModal();
             }
         };
@@ -850,33 +821,34 @@
                 authBtn.setAttribute('onclick', "switchPage('profile', document.getElementById('navProfileBtn'))");
                 document.getElementById('profileUsernameDisplay').innerText = user.username;
             } else {
-                authBtn.innerText = "Войти";
+                authBtn.innerText = "Kirish";
                 authBtn.setAttribute('onclick', "openAuthModal()");
             }
         }
 
         function switchPage(pageId, btnElement) {
             let user = getCurrentUser();
-            if((pageId === 'profile' || pageId === 'case') && !user) {
+            if ((pageId === 'profile' || pageId === 'case') && !user) {
                 openAuthModal();
                 return;
             }
-            document.querySelectorAll('.page-content').forEach(page => page.classList.remove('active-page'));
-            document.querySelectorAll('.nav-link').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active-page'));
+            document.querySelectorAll('.nav-link').forEach(b => b.classList.remove('active'));
 
-            if(pageId === 'home') {
+            if (pageId === 'home') {
                 document.getElementById('homePage').classList.add('active-page');
-            } else if(pageId === 'case') {
+            } else if (pageId === 'case') {
                 document.getElementById('casePage').classList.add('active-page');
-            } else if(pageId === 'profile') {
+            } else if (pageId === 'profile') {
                 document.getElementById('profilePage').classList.add('active-page');
             }
-            if(btnElement) btnElement.classList.add('active');
+            if (btnElement) btnElement.classList.add('active');
         }
 
         function openAuthModal() {
             document.getElementById('authModal').classList.add('active');
         }
+
         function closeAuthModal() {
             document.getElementById('authModal').classList.remove('active');
         }
@@ -888,16 +860,16 @@
             const btn = document.getElementById('authSubmitBtn');
             const switchText = document.getElementById('authSwitchText');
 
-            if(isLoginMode) {
-                title.innerText = "Вход в аккаунт";
-                desc.innerText = "Введите свой логин и пароль для входа.";
-                btn.innerText = "Войти";
-                switchText.innerHTML = "Нет аккаунта? <span>Зарегистрироваться</span>";
+            if (isLoginMode) {
+                title.innerText = "Akkauntga kirish";
+                desc.innerText = "Ism va parolingizni kiriting.";
+                btn.innerText = "Kirish";
+                switchText.innerHTML = "Akkauntingiz yo'qmi? <span>Ro'yxatdan o'tish</span>";
             } else {
-                title.innerText = "Регистрация в игре";
-                desc.innerText = "Введите уникальный логин и пароль.";
-                btn.innerText = "Зарегистрироваться";
-                switchText.innerHTML = "Уже есть аккаунт? <span>Войти</span>";
+                title.innerText = "Ro'yxatdan o'tish";
+                desc.innerText = "Yangi unikal ism va parol yarating.";
+                btn.innerText = "Ro'yxatdan o'tish";
+                switchText.innerHTML = "Akkauntingiz bormi? <span>Kirish</span>";
             }
         }
 
@@ -905,91 +877,87 @@
             const username = document.getElementById('authUsernameInput').value.trim();
             const password = document.getElementById('authPasswordInput').value.trim();
 
-            if(!username || !password) {
-                alert("Заполните все поля!");
+            if (!username || !password) {
+                alert("Barcha maydonlarni to'ldiring!");
                 return;
             }
 
-            if(!isLoginMode) {
-                // REGISTRATSIYA
-                if(usersDB[username]) {
-                    alert("Аккаунт с таким именем уже существует! Выберите другое имя или войдите.");
+            if (!isLoginMode) {
+                // Yangi akkaunt ochish (Takrorlanishni oldini olish)
+                if (usersDB[username]) {
+                    alert("Bu nomdagi akkaunt allaqachon mavjud! Boshqa nom tanlang yoki kiring.");
                     return;
                 }
-                // Yangi akkaunt ochilganda balansi 0 bo'ladi va shaxsiy saqlanadi
                 usersDB[username] = { username: username, password: password, coins: 0 };
                 currentUsername = username;
                 saveDB();
                 updateAuthUI();
                 closeAuthModal();
-                alert("Успешная регистрация! Добро пожаловать!");
+                alert("Muvaffaqiyatli ro'yxatdan o'tdingiz!");
             } else {
-                // VOYTI (KIRISH)
-                if(!usersDB[username]) {
-                    alert("Аккаунт с таким именем не найден!");
+                // Kirish (Voyti)
+                if (!usersDB[username]) {
+                    alert("Bunday nomdagi akkaunt topilmadi!");
                     return;
                 }
-                if(usersDB[username].password !== password) {
-                    alert("Неверный пароль!");
+                if (usersDB[username].password !== password) {
+                    alert("Noto'g'ri parol kiritildi!");
                     return;
                 }
                 currentUsername = username;
                 saveDB();
                 updateAuthUI();
                 closeAuthModal();
-                alert("Успешный вход!");
+                alert("Muvaffaqiyatli kirdingiz!");
             }
         }
 
         function logoutUser() {
             currentUsername = null;
-            localStorage.removeItem('ww_logged_user');
+            localStorage.removeItem('ww_logged_user_v4');
             updateAuthUI();
             switchPage('home', document.getElementById('navHomeBtn'));
             openAuthModal();
         }
 
-        // Кейс ochish funksiyasi
+        // Keys ochish mexanizmi
         function openCase() {
             let user = getCurrentUser();
-            if(!user) {
+            if (!user) {
                 openAuthModal();
                 return;
             }
-            if(user.coins < 1000) {
-                alert("У вас недостаточно монет! Нужно 1000 монет.");
+            if (user.coins < 1000) {
+                alert("Balansingizda tangalar yetarli emas! Sizga 1000 tanga kerak.");
                 return;
             }
 
-            // 1000 tangani ayirish
             user.coins -= 1000;
             saveDB();
 
-            // Tasodifiy tanlash (Hello Kitty 65%, Kuromi 50% -> 15%, Pitbike 35% -> qolgani)
             let rand = Math.random() * 100;
             let prize = {};
 
-            if(rand < 45) {
+            if (rand < 45) {
                 prize = {
-                    name: "Hello Kitty Scooter",
-                    desc: "Max Speed: 95 km/h | LIMITED Edition",
-                    img: "https://images.prom.ua/5892976105_w1280_h640_5892976105.webp"
+                    name: "Hello Kitty",
+                    desc: "Max Speed: 95 km/h | LIMITED",
+                    img: "f58946c3-60a5-45c2-b8e7-30c741060809.jpg"
                 };
-            } else if(rand < 80) {
+            } else if (rand < 80) {
                 prize = {
-                    name: "Kuromi Punk Scooter",
-                    desc: "Max Speed: 98 km/h | LIMITED Edition",
-                    img: "https://images.prom.ua/5892976105_w1280_h640_5892976105.webp"
+                    name: "Kuromi",
+                    desc: "Max Speed: 98 km/h | LIMITED",
+                    img: "36e623ff-0afb-4f33-955d-5b054d783296.jpg"
                 };
             } else {
                 prize = {
-                    name: "Pitbike Stunt SECRET",
-                    desc: "Max Speed: 109 km/h | SECRET Item",
-                    img: "https://images.prom.ua/5892976105_w1280_h640_5892976105.webp"
+                    name: "Pitbike Stunt",
+                    desc: "Max Speed: 109 km/h | SECRET",
+                    img: "4661a65d-50c0-47a0-9215-815876f0c79b.jpg"
                 };
             }
 
-            // Natijani ko'rsatish
             const resBox = document.getElementById('caseResultBox');
             document.getElementById('resultName').innerText = prize.name;
             document.getElementById('resultDesc').innerText = prize.desc;
@@ -997,43 +965,42 @@
             resBox.style.display = 'block';
         }
 
-        // Promokodlar funksiyasi (`vipersonic` - 150, `3futfut3` - 800)
+        // Promokodlar (`vipersonic` - 150, `3futfut3` - 800)
         function applyPromoCode() {
             let user = getCurrentUser();
-            if(!user) {
-                alert("Войдите в аккаунт, чтобы использовать промокод!");
+            if (!user) {
+                alert("Promokod ishlatish uchun avval tizimga kiring!");
                 openAuthModal();
                 return;
             }
             const code = document.getElementById('promoInputCode').value.trim();
-            
-            // Har bir foydalanuvchi uchun promokod ishlatilganligini tekshirish
-            if(!usedPromoCodes[user.username]) {
+
+            if (!usedPromoCodes[user.username]) {
                 usedPromoCodes[user.username] = {};
             }
 
-            if(code === "vipersonic") {
-                if(usedPromoCodes[user.username]['vipersonic']) {
-                    alert("Вы уже использовали этот промокод!");
+            if (code === "vipersonic") {
+                if (usedPromoCodes[user.username]['vipersonic']) {
+                    alert("Bu promokod allaqachon ishlatilgan!");
                     return;
                 }
                 user.coins += 150;
                 usedPromoCodes[user.username]['vipersonic'] = true;
                 saveDB();
-                localStorage.setItem('ww_used_promos', JSON.stringify(usedPromoCodes));
-                alert("Успешно! Промокод 'vipersonic' активирован: +150 монет!");
-            } else if(code === "3futfut3") {
-                if(usedPromoCodes[user.username]['3futfut3']) {
-                    alert("Вы уже использовали этот промокод!");
+                localStorage.setItem('ww_used_promos_v4', JSON.stringify(usedPromoCodes));
+                alert("Tabriklaymiz! +150 tanga qo'shildi!");
+            } else if (code === "3futfut3") {
+                if (usedPromoCodes[user.username]['3futfut3']) {
+                    alert("Bu promokod allaqachon ishlatilgan!");
                     return;
                 }
                 user.coins += 800;
                 usedPromoCodes[user.username]['3futfut3'] = true;
                 saveDB();
-                localStorage.setItem('ww_used_promos', JSON.stringify(usedPromoCodes));
-                alert("Успешно! Промокод '3futfut3' активирован: +800 монет!");
+                localStorage.setItem('ww_used_promos_v4', JSON.stringify(usedPromoCodes));
+                alert("Tabriklaymiz! +800 tanga qo'shildi!");
             } else {
-                alert("Неверный промокод!");
+                alert("Noto'g'ri promokod!");
             }
         }
     </script>
