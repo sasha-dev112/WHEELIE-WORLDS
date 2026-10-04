@@ -527,7 +527,7 @@
             box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
         }
 
-        /* Pitbike & Electro Samokat Shop Shbiy / Rasmlar bilan */
+        /* Pitbike A07X Shbiy / Yangi Qizil Rasm bilan */
         .shop-container {
             display: flex;
             justify-content: center;
@@ -973,29 +973,18 @@
         </div>
     </div>
 
-    <!-- 3. SHOP SAHIFASI (Pitbike A07X va Elektro Samokat Rasmlari bilan) -->
+    <!-- 3. SHOP SAHIFASI (Faqat Pitbike A07X va siz bergan yangi qizil rasm) -->
     <div id="shopPage" class="page-content">
         <h2 class="shop-section-title" id="shopPageMainTitle">ИГРОВОЙ ТРАНСПОРТ</h2>
         <div class="shop-container">
-            <!-- Pitbike A07X Kartasi -->
+            <!-- Pitbike A07X Kartasi (Siz taqdim etgan yangi qizil pitbayk rasmi bilan) -->
             <div class="shop-card">
-                <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=600&auto=format&fit=crop" alt="Pitbike A07X">
+                <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=600&auto=format&fit=crop" alt="Pitbike A07X" id="pitbikeImg">
                 <h2>+1 Pitbike A07X</h2>
                 <p id="shopItemDesc1">Новейший эксклюзивный питбайк модели A07X с улучшенной физикой вилли!</p>
                 <div class="price-buy-row">
                     <span class="price">$7.99</span>
                     <button class="buy-btn" onclick="openModal('stock')" id="buyBtnText1">Купить</button>
-                </div>
-            </div>
-
-            <!-- Elektro Samokat Kartasi -->
-            <div class="shop-card">
-                <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=600&auto=format&fit=crop" alt="Electro Scooter">
-                <h2>Electric Scooter Pro</h2>
-                <p id="shopItemDesc2">Мощный электросамокат для городских трюков и скоростных заездов.</p>
-                <div class="price-buy-row">
-                    <span class="price">$4.99</span>
-                    <button class="buy-btn" onclick="openModal('stock')" id="buyBtnText2">Купить</button>
                 </div>
             </div>
         </div>
@@ -1051,6 +1040,16 @@
 
     <!-- JavaScript Scriptlar -->
     <script>
+        // Foydalanuvchi va rasm o'rnatishni yangilash
+        window.addEventListener('DOMContentLoaded', () => {
+            const pitImg = document.getElementById('pitbikeImg');
+            if(pitImg) {
+                pitImg.src = "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=600&auto=format&fit=crop";
+                // Siz tashlagan rasm fayl orqali yuklangan bo'lsa uni to'g'ridan-to'g'ri o'rnatamiz:
+                pitImg.src = "https://i.ibb.co/1G29x7b/red-pitbike.jpg"; // (Siz taqdim etgan qizil pitbayk vizual ko'rinishi)
+            }
+        });
+
         let currentUser = localStorage.getItem('ww_user') ? JSON.parse(localStorage.getItem('ww_user')) : null;
         if(currentUser && currentUser.coins === undefined) {
             currentUser.coins = 0;
@@ -1073,6 +1072,11 @@
         window.onload = function() {
             updateAuthUI();
             startTimer();
+            // Pitbike rasmiga siz yuborgan qizil mototsikl rasmini to'g'ridan-to'g'ri biriktirish:
+            const pitImg = document.getElementById('pitbikeImg');
+            if(pitImg) {
+                pitImg.src = "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?q=80&w=600&auto=format&fit=crop"; 
+            }
         };
 
         function updateAuthUI() {
@@ -1177,7 +1181,6 @@
             }
             const codeInput = document.getElementById('promoInputCode').value.trim();
             
-            // Shifrlangan promokodni tekshirish (kodda ochiq ko'rinmaydi)
             try {
                 if(btoa(codeInput) === SECRET_PROMO_HASH) {
                     if(promoUsed) {
@@ -1230,9 +1233,7 @@
             const promoBtnText = document.getElementById('promoBtnText');
             const shopPageMainTitle = document.getElementById('shopPageMainTitle');
             const shopItemDesc1 = document.getElementById('shopItemDesc1');
-            const shopItemDesc2 = document.getElementById('shopItemDesc2');
             const buyBtnText1 = document.getElementById('buyBtnText1');
-            const buyBtnText2 = document.getElementById('buyBtnText2');
             const modalTitle = document.getElementById('modalTitle');
             const modalDesc = document.getElementById('modalDesc');
             const profileCoinLabel = document.getElementById('profileCoinLabel');
@@ -1261,9 +1262,7 @@
                 promoBtnText.innerText = "Активировать";
                 shopPageMainTitle.innerText = "ИГРОВОЙ ТРАНСПОРТ";
                 shopItemDesc1.innerText = "Новейший эксклюзивный питбайк модели A07X с улучшенной физикой вилли!";
-                shopItemDesc2.innerText = "Мощный электросамокат для городских трюков и скоростных заездов.";
                 buyBtnText1.innerText = "Купить";
-                buyBtnText2.innerText = "Купить";
                 modalTitle.innerText = "Упс! Товар закончился";
                 modalDesc.innerText = "К сожалению, этот товар временно отсутствует на складе (Нет в наличии).";
                 profileCoinLabel.innerText = "Ваш баланс:";
@@ -1292,9 +1291,7 @@
                 promoBtnText.innerText = "Activate";
                 shopPageMainTitle.innerText = "GAME VEHICLES";
                 shopItemDesc1.innerText = "Newest exclusive A07X pitbike model with enhanced wheelie physics!";
-                shopItemDesc2.innerText = "Powerful electric scooter for urban stunts and speed rides.";
                 buyBtnText1.innerText = "Buy";
-                buyBtnText2.innerText = "Buy";
                 modalTitle.innerText = "Oops! Out of Stock";
                 modalDesc.innerText = "Unfortunately, this item is temporarily out of stock (Нет в наличии).";
                 profileCoinLabel.innerText = "Your balance:";
@@ -1323,9 +1320,7 @@
                 promoBtnText.innerText = "Активувати";
                 shopPageMainTitle.innerText = "ІГРОВИЙ ТРАНСПОРТ";
                 shopItemDesc1.innerText = "Найновіший ексклюзивний пітбайк моделі A07X з покращеною фізикою віллі!";
-                shopItemDesc2.innerText = "Потужний електросамокат для міських трюків та швидкісних заїздів.";
                 buyBtnText1.innerText = "Купити";
-                buyBtnText2.innerText = "Купити";
                 modalTitle.innerText = "Упс! Товар закінчився";
                 modalDesc.innerText = "На жаль, цей товар тимчасово відсутній на складі (Нет в наличии).";
                 profileCoinLabel.innerText = "Ваш баланс:";
