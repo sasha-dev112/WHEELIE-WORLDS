@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wheelie World | Ultimate Game Portal</title>
+    <title>Wheelie World | Ultimate Game Portal - v.4.3</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <!-- FontAwesome Ikonkalar -->
@@ -11,13 +11,14 @@
     
     <style>
         /* ==========================================
-           UPDATE MATNINI SHU YERDAN O'ZGARTIRASIZ 
+           CSS VARIABLES & CONFIGURATION
            ================================---------- */
         :root {
-            --game-update-version: "UPDATE v.4.1";
-            --game-update-text-ru: "Добавлена новая физика трюков, ночной режим освещения и кастомизация байков!";
-            --game-update-text-en: "Added new stunt physics, night lighting mode, and bike customization!";
-            --game-update-text-ua: "Додано нову фізику трюків, нічний режим освітлення та кастомізацію байків!";
+            --game-update-version: "UPDATE v.4.3";
+            --game-update-date: "04.10.2026";
+            --game-update-text-ru: "Добавлена физика Pitbike A07X, расширен ночной город и оптимизированы текстуры!";
+            --game-update-text-en: "Added Pitbike A07X physics, expanded night city and optimized textures!";
+            --game-update-text-ua: "Додано фізику Pitbike A07X, розширено нічне місто та оптимізовано текстури!";
         }
 
         * {
@@ -236,6 +237,34 @@
             margin-bottom: 30px;
         }
 
+        /* Sasha Dev Ma'lumot Paneli */
+        .sasha-dev-panel {
+            background: linear-gradient(135deg, rgba(255, 0, 127, 0.15), rgba(0, 242, 254, 0.15));
+            border: 2px solid #ff007f;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 30px;
+            text-align: left;
+            position: relative;
+            box-shadow: 0 0 20px rgba(255,0,127,0.2);
+        }
+
+        .sasha-dev-panel h4 {
+            font-family: 'Orbitron', sans-serif;
+            color: #ff007f;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sasha-dev-panel p {
+            font-size: 0.95rem;
+            color: #f1f2f6;
+            margin-bottom: 8px;
+        }
+
         /* Update Bloki */
         .daily-update-box {
             background: linear-gradient(135deg, rgba(0, 242, 254, 0.15), rgba(255, 0, 127, 0.15));
@@ -249,7 +278,7 @@
         }
 
         .daily-update-box::before {
-            content: attr(data-version);
+            content: "UPDATE v.4.3";
             position: absolute;
             top: -12px;
             right: 20px;
@@ -277,6 +306,13 @@
             font-size: 1rem;
             color: #f1f2f6;
             margin: 0;
+        }
+
+        .update-date-info {
+            font-size: 0.85rem;
+            color: #f5af19;
+            margin-top: 8px;
+            font-family: 'Orbitron', sans-serif;
         }
 
         /* Xarakteristika Grid */
@@ -492,7 +528,7 @@
             box-shadow: 0 0 20px #f5af19;
         }
 
-        /* Pitbike Magazin Karti (Нет в наличии) */
+        /* Pitbike Magazin Karti (+1 Pitbike A07X rasmsiz bloki) */
         .shop-container {
             display: flex;
             justify-content: center;
@@ -512,39 +548,16 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 30px rgba(255, 0, 127, 0.3);
         }
 
-        .shop-card::before {
-            content: "WHEELIE WORLD WHEELIE WORLD WHEELIE WORLD WHEELIE WORLD WHEELIE WORLD WHEELIE WORLD WHEELIE WORLD WHEELIE WORLD";
-            position: absolute;
-            top: -50px; left: -50px; right: -50px; bottom: -50px;
-            font-family: 'Bangers', cursive;
-            font-size: 1.8rem;
-            color: rgba(255, 255, 255, 0.03);
-            transform: rotate(-25deg);
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .bike-img-wrapper {
-            position: relative;
-            z-index: 2;
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .bike-text-badge {
+            background: linear-gradient(45deg, #ff007f, #00f2fe);
+            color: #000;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 1.2rem;
             margin-bottom: 20px;
-        }
-
-        .shop-card img {
-            max-width: 100%;
-            max-height: 180px;
-            transform: scaleX(-1);
-            filter: drop-shadow(0 15px 15px rgba(0,0,0,0.7));
-            animation: floatBike 3s ease-in-out infinite;
-        }
-
-        @keyframes floatBike {
-            0%, 100% { transform: scaleX(-1) translateY(0); }
-            50% { transform: scaleX(-1) translateY(-6px); }
+            box-shadow: 0 0 15px rgba(0,242,254,0.4);
         }
 
         .shop-card h2 {
@@ -552,24 +565,18 @@
             font-size: 1.5rem;
             margin-bottom: 10px;
             color: #fff;
-            z-index: 2;
-            position: relative;
         }
 
         .shop-card p {
             color: #a4b0be;
             font-size: 0.9rem;
             margin-bottom: 20px;
-            z-index: 2;
-            position: relative;
         }
 
         .price-buy-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 2;
-            position: relative;
             background: rgba(0, 0, 0, 0.4);
             padding: 12px 20px;
             border-radius: 15px;
@@ -657,7 +664,7 @@
         }
 
         /* ==========================================
-           MODAL OYNALAR (REGISTER, LOGIN, OUT OF STOCK)
+           MODAL OYNALAR
            ================================---------- */
         .modal-overlay {
             position: fixed;
@@ -836,13 +843,10 @@
             </nav>
         </div>
         <div class="header-right">
-            <!-- Tanga Balansi -->
             <div class="coin-balance">
                 <i class="fa-solid fa-coins"></i> <span id="userCoinsDisplay">0</span>
             </div>
-            <!-- Auth / Profil tugmasi -->
             <button class="user-auth-btn" id="authHeaderBtn" onclick="openAuthModal()">Войти</button>
-            <!-- Til almashtirgich -->
             <div class="lang-switcher">
                 <button class="lang-btn" onclick="changeLang('ru')">RU</button>
                 <button class="lang-btn" onclick="changeLang('en')">EN</button>
@@ -861,21 +865,30 @@
                 Самый экстремальный симулятор трюков на питбайках и электросамокатах! Дерзкие вилли, ночные улицы, полный тюнинг и адреналин. Проект находится в активной разработке!
             </p>
 
-            <!-- Update Bloki -->
-            <div class="daily-update-box" id="updateBoxDiv" data-version="UPDATE v.4.1">
-                <h3 id="updateHeader"><i class="fa-solid fa-rocket"></i> ЕЖЕДНЕВНЫЙ ПАТЧНОУТ:</h3>
-                <p id="updateDescText">Добавлена новая физика трюков, ночной режим освещения и кастомизация байков!</p>
+            <!-- Sasha Dev Ma'lumot Paneli -->
+            <div class="sasha-dev-panel">
+                <h4 id="sashaDevHeader"><i class="fa-solid fa-circle-info"></i> ИНФОРМАЦИЯ ОТ SASHA DEV:</h4>
+                <p id="sashaDevText1">Точная дата выхода полноценного проекта (Full Project) пока не объявлена.</p>
+                <p id="sashaDevText2">Релиз игры планируется для платформ: <strong>Android / PC</strong>.</p>
+                <p id="sashaDevText3">Демоверсия игры станет доступна в ближайшие дни!</p>
+            </div>
+
+            <!-- Update Bloki v.4.3 -->
+            <div class="daily-update-box" id="updateBoxDiv" data-version="UPDATE v.4.3">
+                <h3 id="updateHeader"><i class="fa-solid fa-rocket"></i> ПАТЧНОУТ v.4.3:</h3>
+                <p id="updateDescText">Добавлена физика Pitbike A07X, расширен ночной город и оптимизированы текстуры!</p>
+                <div class="update-date-info" id="updateDateText">Дата последнего обновления: 04.10.2026</div>
             </div>
 
             <!-- Xarakteristika -->
             <div class="specs-grid">
                 <div class="spec-box">
                     <span id="engineLabel">Игровой движок</span>
-                    <strong id="engineText">НЕИЗВЕСТНО</strong>
+                    <strong id="engineText">Unity / Unreal</strong>
                 </div>
                 <div class="spec-box">
                     <span id="platformLabel">Платформы</span>
-                    <strong id="platformText">ПК / Android</strong>
+                    <strong id="platformText">Android / PC</strong>
                 </div>
                 <div class="spec-box">
                     <span id="statusLabel">Статус</span>
@@ -889,21 +902,17 @@
     <div id="donatePage" class="page-content">
         <h2 class="shop-section-title" id="donateTitleText">МАГАЗИН МОНЕТ И ДОНАТ</h2>
         
-        <!-- Chegirma Taymeri -->
         <div class="discount-timer-banner">
             <i class="fa-solid fa-fire"></i> <span id="timerText">Скидки завершатся через:</span>
             <div class="timer-box" id="countdownTimer">30d 23h 59m</div>
         </div>
 
-        <!-- Promokod Kiritish Joyi -->
         <div class="promo-container">
             <input type="text" id="promoInputCode" class="promo-input" placeholder="Введите промокод...">
             <button class="promo-btn" onclick="applyPromoCode()" id="promoBtnText">Активировать</button>
         </div>
 
-        <!-- Donat Kartochkalari (Barchasida Net v nalychii modal ishlaydi) -->
         <div class="donate-grid">
-            <!-- 100 Tanga -->
             <div class="donate-card">
                 <div class="donate-icon"><i class="fa-solid fa-coins"></i></div>
                 <h3>100 Coins</h3>
@@ -913,7 +922,6 @@
                 <button class="donate-btn" onclick="openModal('stock')">Купить</button>
             </div>
 
-            <!-- 350 Tanga (Chegirma) -->
             <div class="donate-card sale">
                 <div class="sale-badge">-25%</div>
                 <div class="donate-icon"><i class="fa-solid fa-coins"></i></div>
@@ -925,7 +933,6 @@
                 <button class="donate-btn" onclick="openModal('stock')">Купить</button>
             </div>
 
-            <!-- 600 Tanga -->
             <div class="donate-card">
                 <div class="donate-icon"><i class="fa-solid fa-coins"></i></div>
                 <h3>600 Coins</h3>
@@ -935,7 +942,6 @@
                 <button class="donate-btn" onclick="openModal('stock')">Купить</button>
             </div>
 
-            <!-- 1000 Tanga -->
             <div class="donate-card">
                 <div class="donate-icon"><i class="fa-solid fa-coins"></i></div>
                 <h3>1,000 Coins</h3>
@@ -945,7 +951,6 @@
                 <button class="donate-btn" onclick="openModal('stock')">Купить</button>
             </div>
 
-            <!-- 2500 Tanga (Chegirma) -->
             <div class="donate-card sale">
                 <div class="sale-badge">-10%</div>
                 <div class="donate-icon"><i class="fa-solid fa-coins"></i></div>
@@ -957,7 +962,6 @@
                 <button class="donate-btn" onclick="openModal('stock')">Купить</button>
             </div>
 
-            <!-- 5000 Tanga (2 ta Sunduk) -->
             <div class="donate-card">
                 <div class="donate-icon"><i class="fa-solid fa-box-open"></i><i class="fa-solid fa-box-open" style="margin-left:-15px;"></i></div>
                 <h3>5,000 Coins + 2 Chests</h3>
@@ -969,17 +973,17 @@
         </div>
     </div>
 
-    <!-- 3. SHOP SAHIFASI (Pitbike) -->
+    <!-- 3. SHOP SAHIFASI (Pitbike A07X rasmsiz bloki) -->
     <div id="shopPage" class="page-content">
         <div class="shop-container">
             <div class="shop-card">
-                <div class="bike-img-wrapper">
-                    <img src="https://images.prom.ua/5892976105_w1280_h640_5892976105.webp" alt="Pitbike Stunt">
+                <div class="bike-text-badge">
+                    +1 Pitbike A07X
                 </div>
-                <h2 id="shopItemTitle">Pro Pitbike Stunt</h2>
-                <p id="shopItemDesc">Легендарный питбайк для безумных трюков и вилли в игре!</p>
+                <h2 id="shopItemTitle">Pitbike A07X Stunt</h2>
+                <p id="shopItemDesc">Новейший эксклюзивный питбайк модели A07X с улучшенной физикой вилли!</p>
                 <div class="price-buy-row">
-                    <span class="price">$5.99</span>
+                    <span class="price">$7.99</span>
                     <button class="buy-btn" onclick="openModal('stock')" id="buyBtnText">Купить</button>
                 </div>
             </div>
@@ -999,14 +1003,14 @@
         </div>
     </div>
 
-    <!-- AccessuarPanel (Siz so'ragan qo'shimcha panel) -->
+    <!-- AccessuarPanel -->
     <div id="AccessuarPanel" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:#1a1a2e; border:2px solid #ff007f; padding:30px; border-radius:20px; z-index:2000; text-align:center;">
         <h3 style="font-family:'Orbitron',sans-serif; color:#fff; margin-bottom:15px;">Accessuar Panel</h3>
         <p style="color:#a4b0be; margin-bottom:20px;">Настройка аксессуаров персонажа</p>
         <button id="CloseAksesuarBtn" class="modal-btn" style="background:#ff416c; color:white;">Закрыть</button>
     </div>
 
-    <!-- Modal Oyna: UPPSS (Нет в наличии) -->
+    <!-- Modal Oyna: Нет в наличии -->
     <div class="modal-overlay" id="outOfStockModal">
         <div class="modal-box">
             <i class="fa-solid fa-triangle-exclamation main-icon"></i>
@@ -1016,7 +1020,7 @@
         </div>
     </div>
 
-    <!-- Modal Oyna: REGISTER / LOGIN -->
+    <!-- Modal Oyna: Auth -->
     <div class="modal-overlay" id="authModal">
         <div class="modal-box">
             <i class="fa-solid fa-user-shield main-icon" style="color: #00f2fe;"></i>
@@ -1043,7 +1047,6 @@
 
     <!-- JavaScript Scriptlar -->
     <script>
-        // Har bir yangi yoki mavjud foydalanuvchida balans qat'iy 0 dan boshlanadi
         let currentUser = localStorage.getItem('ww_user') ? JSON.parse(localStorage.getItem('ww_user')) : null;
         if(currentUser && currentUser.coins === undefined) {
             currentUser.coins = 0;
@@ -1051,7 +1054,6 @@
         let isLoginMode = false;
         let promoUsed = localStorage.getItem('ww_promo') === 'true';
 
-        // Har 0.1 sekundda (100ms) avtomatik saqlash va 0 balansni qattiq nazorat qilish
         setInterval(() => {
             if (currentUser) {
                 localStorage.setItem('ww_user', JSON.stringify(currentUser));
@@ -1065,7 +1067,6 @@
             updateAuthUI();
             startTimer();
 
-            // AccessuarPanel ichidagi CloseAksesuarBtn bosilganda lobbi oynasiga (home) qaytish funksiyasi
             const closeBtn = document.getElementById('CloseAksesuarBtn');
             if(closeBtn) {
                 closeBtn.addEventListener('click', function() {
@@ -1108,7 +1109,6 @@
             if(btnElement) btnElement.classList.add('active');
         }
 
-        // Modal oynalar (Нет в наличии)
         function openModal(type) {
             if(type === 'stock') {
                 document.getElementById('outOfStockModal').classList.add('active');
@@ -1170,7 +1170,6 @@
             switchPage('home', document.getElementById('navHomeBtn'));
         }
 
-        // Promokod funksiyasi (`soon2027`)
         function applyPromoCode() {
             if(!currentUser) {
                 alert("Войдите в аккаунт, чтобы использовать промокод!");
@@ -1193,9 +1192,8 @@
             }
         }
 
-        // 1 oylik Timer funksiyasi
         function startTimer() {
-            let time = 30 * 24 * 60 * 60; // 30 kun sekundda
+            let time = 30 * 24 * 60 * 60;
             setInterval(() => {
                 let days = Math.floor(time / (3600 * 24));
                 let hours = Math.floor((time % (3600 * 24)) / 3600);
@@ -1205,17 +1203,20 @@
             }, 1000);
         }
 
-        // Tilni o'zgartirish
         function changeLang(lang) {
             const menuHomeText = document.getElementById('menuHomeText');
             const menuDonateText = document.getElementById('menuDonateText');
             const menuShopText = document.getElementById('menuShopText');
             const statusText = document.getElementById('statusText');
             const mainDesc = document.getElementById('mainDesc');
+            const sashaDevHeader = document.getElementById('sashaDevHeader');
+            const sashaDevText1 = document.getElementById('sashaDevText1');
+            const sashaDevText2 = document.getElementById('sashaDevText2');
+            const sashaDevText3 = document.getElementById('sashaDevText3');
             const updateHeader = document.getElementById('updateHeader');
             const updateDescText = document.getElementById('updateDescText');
+            const updateDateText = document.getElementById('updateDateText');
             const engineLabel = document.getElementById('engineLabel');
-            const engineText = document.getElementById('engineText');
             const platformLabel = document.getElementById('platformLabel');
             const statusLabel = document.getElementById('statusLabel');
             const statusBoxText = document.getElementById('statusBoxText');
@@ -1236,19 +1237,23 @@
                 menuDonateText.innerText = "Монет Шоу";
                 menuShopText.innerText = "Магазин";
                 statusText.innerText = "🎮 Игра в разработке (Скоро релиз)";
-                mainDesc.innerText = "Самый экстремальный симулятор трюков на питбайках и электросамокатах! Дерзкие вилли, ночные улицы, полный тюнинг и адреналин. Проект находится в активной разработке!";
-                updateHeader.innerHTML = '<i class="fa-solid fa-rocket"></i> ЕЖЕДНЕВНЫЙ ПАТЧНОУТ:';
-                updateDescText.innerText = "Добавлена новая физика трюков, ночной режим освещения и кастомизация байков!";
+                mainDesc.innerText = "Самый экстремальный симулятор трюков на питбайках и электросамокатах! Дерзкие вилли, ночные улицы, полный тюнинг и адреналин.";
+                sashaDevHeader.innerHTML = '<i class="fa-solid fa-circle-info"></i> ИНФОРМАЦИЯ ОТ SASHA DEV:';
+                sashaDevText1.innerText = "Точная дата выхода полноценного проекта (Full Project) пока не объявлена.";
+                sashaDevText2.innerHTML = "Релиз игры планируется для платформ: <strong>Android / PC</strong>.";
+                sashaDevText3.innerText = "Демоверсия игры станет доступна в ближайшие дни!";
+                updateHeader.innerHTML = '<i class="fa-solid fa-rocket"></i> ПАТЧНОУТ v.4.3:';
+                updateDescText.innerText = "Добавлена физика Pitbike A07X, расширен ночной город и оптимизированы текстуры!";
+                updateDateText.innerText = "Дата последнего обновления: 04.10.2026";
                 engineLabel.innerText = "Игровой движок";
-                engineText.innerText = "НЕИЗВЕСТНО";
                 platformLabel.innerText = "Платформы";
                 statusLabel.innerText = "Статус";
                 statusBoxText.innerText = "Разработка";
                 donateTitleText.innerText = "МАГАЗИН МОНЕТ И ДОНАТ";
                 timerText.innerText = "Скидки завершатся через:";
                 promoBtnText.innerText = "Активировать";
-                shopItemTitle.innerText = "Pro Pitbike Stunt";
-                shopItemDesc.innerText = "Легендарный питбайк для безумных трюков и вилли в игре!";
+                shopItemTitle.innerText = "Pitbike A07X Stunt";
+                shopItemDesc.innerText = "Новейший эксклюзивный питбайк модели A07X с улучшенной физикой вилли!";
                 buyBtnText.innerText = "Купить";
                 modalTitle.innerText = "Упс! Товар закончился";
                 modalDesc.innerText = "К сожалению, этот товар временно отсутствует на складе (Нет в наличии).";
@@ -1261,19 +1266,23 @@
                 menuDonateText.innerText = "Coin Shop";
                 menuShopText.innerText = "Shop";
                 statusText.innerText = "🎮 Game in Development (Coming Soon)";
-                mainDesc.innerText = "The most extreme stunt simulator on pitbikes and electric scooters! Daring wheelies, night streets, full tuning and adrenaline. Active development!";
-                updateHeader.innerHTML = '<i class="fa-solid fa-rocket"></i> DAILY PATCH NOTES:';
-                updateDescText.innerText = "Added new stunt physics, night lighting mode, and bike customization!";
+                mainDesc.innerText = "The most extreme stunt simulator on pitbikes and electric scooters! Daring wheelies, night streets, full tuning and adrenaline.";
+                sashaDevHeader.innerHTML = '<i class="fa-solid fa-circle-info"></i> INFO FROM SASHA DEV:';
+                sashaDevText1.innerText = "The exact release date for the full project has not been announced yet.";
+                sashaDevText2.innerHTML = "Game release is planned for platforms: <strong>Android / PC</strong>.";
+                sashaDevText3.innerText = "The demo version of the game will be available in the coming days!";
+                updateHeader.innerHTML = '<i class="fa-solid fa-rocket"></i> PATCH NOTES v.4.3:';
+                updateDescText.innerText = "Added Pitbike A07X physics, expanded night city and optimized textures!";
+                updateDateText.innerText = "Last update date: 10/04/2026";
                 engineLabel.innerText = "Game Engine";
-                engineText.innerText = "UNKNOWN";
                 platformLabel.innerText = "Platforms";
                 statusLabel.innerText = "Status";
                 statusBoxText.innerText = "Development";
                 donateTitleText.innerText = "COIN & DONATE SHOP";
                 timerText.innerText = "Discounts end in:";
                 promoBtnText.innerText = "Activate";
-                shopItemTitle.innerText = "Pro Pitbike Stunt";
-                shopItemDesc.innerText = "Legendary pitbike for crazy stunts and wheelies in the game!";
+                shopItemTitle.innerText = "Pitbike A07X Stunt";
+                shopItemDesc.innerText = "Newest exclusive A07X pitbike model with enhanced wheelie physics!";
                 buyBtnText.innerText = "Buy";
                 modalTitle.innerText = "Oops! Out of Stock";
                 modalDesc.innerText = "Unfortunately, this item is temporarily out of stock (Нет в наличии).";
@@ -1287,18 +1296,22 @@
                 menuShopText.innerText = "Магазин";
                 statusText.innerText = "🎮 Гра в розробці (Скоро реліз)";
                 mainDesc.innerText = "Найекстремальніший симулятор трюків на пітбайках та електросамокатах! Зухвалі віллі, нічні вулиці, повний тюнінг та адреналін.";
-                updateHeader.innerHTML = '<i class="fa-solid fa-rocket"></i> ЩОДЕННИЙ ПАТЧНОУТ:';
-                updateDescText.innerText = "Додано нову фізику трюків, нічний режим освітлення та кастомізацію байків!";
+                sashaDevHeader.innerHTML = '<i class="fa-solid fa-circle-info"></i> ІНФОРМАЦІЯ ВІД SASHA DEV:';
+                sashaDevText1.innerText = "Точна дата виходу повноцінного проєкту (Full Project) поки не оголошена.";
+                sashaDevText2.innerHTML = "Реліз гри планується для платформ: <strong>Android / PC</strong>.";
+                sashaDevText3.innerText = "Демоверсія гри стане доступна найближчими днями!";
+                updateHeader.innerHTML = '<i class="fa-solid fa-rocket"></i> ПАТЧНОУТ v.4.3:';
+                updateDescText.innerText = "Додано фізику Pitbike A07X, розширено нічне місто та оптимізовано текстури!";
+                updateDateText.innerText = "Дата останнього оновлення: 04.10.2026";
                 engineLabel.innerText = "Ігровий рушій";
-                engineText.innerText = "НЕВІДОМО";
                 platformLabel.innerText = "Платформи";
                 statusLabel.innerText = "Статус";
                 statusBoxText.innerText = "Розробка";
                 donateTitleText.innerText = "МАГАЗИН МОНЕТ ТА ДОНАТ";
                 timerText.innerText = "Знижки закінчаться через:";
                 promoBtnText.innerText = "Активувати";
-                shopItemTitle.innerText = "Pro Pitbike Stunt";
-                shopItemDesc.innerText = "Легендарний пітбайк для божевільних трюків та віллі у грі!";
+                shopItemTitle.innerText = "Pitbike A07X Stunt";
+                shopItemDesc.innerText = "Найновіший ексклюзивний пітбайк моделі A07X з покращеною фізикою віллі!";
                 buyBtnText.innerText = "Купити";
                 modalTitle.innerText = "Упс! Товар закінчився";
                 modalDesc.innerText = "На жаль, цей товар тимчасово відсутній на складі (Нет в наличии).";
