@@ -43,7 +43,6 @@
             position: relative;
         }
 
-        /* Yorqin oq va zamonaviy fon naqshlari */
         body::before {
             content: '';
             position: absolute;
@@ -53,7 +52,6 @@
             z-index: -1;
         }
 
-        /* Header va Navigatsiya */
         header {
             display: flex;
             justify-content: space-between;
@@ -72,7 +70,6 @@
             gap: 40px;
         }
 
-        /* Katta Wheelie World Logotipi */
         .logo {
             font-family: 'Montserrat', sans-serif;
             font-size: 3rem;
@@ -178,7 +175,6 @@
             color: white;
         }
 
-        /* Sahifalar */
         .page-content {
             display: none;
             max-width: 1050px;
@@ -237,7 +233,6 @@
             margin-bottom: 35px;
         }
 
-        /* Sasha Dev Ma'lumot Paneli */
         .sasha-dev-panel {
             background: #f0fdf4;
             border: 2px solid #22c55e;
@@ -265,7 +260,6 @@
             margin-bottom: 8px;
         }
 
-        /* Update Bloki v.4.3 */
         .daily-update-box {
             background: #e0f2fe;
             border: 2px dashed var(--accent-blue);
@@ -316,7 +310,6 @@
             font-weight: 700;
         }
 
-        /* Xarakteristika Grid */
         .specs-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -356,9 +349,6 @@
             font-weight: 800;
         }
 
-        /* ==========================================
-           DONAT & SHOP SAHIFASI
-           ================================---------- */
         .shop-section-title {
             font-family: 'Montserrat', sans-serif;
             font-size: 2.5rem;
@@ -527,7 +517,6 @@
             box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
         }
 
-        /* Pitbike A07X Shbiy / Yangi Qizil Rasm bilan */
         .shop-container {
             display: flex;
             justify-content: center;
@@ -613,7 +602,6 @@
             box-shadow: 0 4px 15px rgba(255, 0, 127, 0.3);
         }
 
-        /* Profil Sahifasi */
         .profile-card {
             background: var(--bg-card);
             border: 2px solid #e2e8f0;
@@ -671,7 +659,6 @@
             box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
         }
 
-        /* Modal Oynalar */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -777,7 +764,6 @@
             font-weight: 700;
         }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 25px;
@@ -826,7 +812,6 @@
 </head>
 <body>
 
-    <!-- Header / Menyu va Balans -->
     <header>
         <div class="logo-nav">
             <div class="logo">Wheelie World</div>
@@ -855,7 +840,6 @@
         </div>
     </header>
 
-    <!-- 1. ASOSIY SAHIFA -->
     <div id="homePage" class="page-content active-page">
         <div class="hero-card">
             <div class="status-badge" id="statusText">🎮 Игра в разработке (Скоро релиз)</div>
@@ -865,7 +849,6 @@
                 Самый экстремальный симулятор трюков на питбайках и электросамокатах! Дерзкие вилли, ночные улицы, полный тюнинг и адреналин. Проект находится в активной разработке!
             </p>
 
-            <!-- Sasha Dev Ma'lumot Paneli -->
             <div class="sasha-dev-panel">
                 <h4 id="sashaDevHeader"><i class="fa-solid fa-circle-info"></i> ИНФОРМАЦИЯ ОТ SASHA DEV:</h4>
                 <p id="sashaDevText1">Точная дата выхода полноценного проекта (Full Project) пока не объявлена.</p>
@@ -873,14 +856,12 @@
                 <p id="sashaDevText3">Демоверсия игры станет доступна в ближайшие дни!</p>
             </div>
 
-            <!-- Update Bloki v.4.3 -->
             <div class="daily-update-box" id="updateBoxDiv">
                 <h3 id="updateHeader"><i class="fa-solid fa-rocket"></i> ПАТЧНОУТ v.4.3:</h3>
                 <p id="updateDescText">Добавлена физика Pitbike A07X, расширен ночной город и оптимизированы текстуры!</p>
                 <div class="update-date-info" id="updateDateText">Дата последнего обновления: 04.10.2026</div>
             </div>
 
-            <!-- Xarakteristika -->
             <div class="specs-grid">
                 <div class="spec-box">
                     <span id="engineLabel">Игровой движок</span>
@@ -898,7 +879,6 @@
         </div>
     </div>
 
-    <!-- 2. DONATE / MONET SHOP SAHIFASI -->
     <div id="donatePage" class="page-content">
         <h2 class="shop-section-title" id="donateTitleText">МАГАЗИН МОНЕТ И ДОНАТ</h2>
         
@@ -973,13 +953,11 @@
         </div>
     </div>
 
-    <!-- 3. SHOP SAHIFASI (Faqat Pitbike A07X va siz bergan yangi qizil rasm) -->
     <div id="shopPage" class="page-content">
         <h2 class="shop-section-title" id="shopPageMainTitle">ИГРОВОЙ ТРАНСПОРТ</h2>
         <div class="shop-container">
-            <!-- Pitbike A07X Kartasi (Siz taqdim etgan yangi qizil pitbayk rasmi bilan) -->
             <div class="shop-card">
-                <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=600&auto=format&fit=crop" alt="Pitbike A07X" id="pitbikeImg">
+                <img src="https://i.ibb.co/1G29x7b/red-pitbike.jpg" alt="Pitbike A07X" id="pitbikeImg" onerror="this.src='https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=600&auto=format&fit=crop'">
                 <h2>+1 Pitbike A07X</h2>
                 <p id="shopItemDesc1">Новейший эксклюзивный питбайк модели A07X с улучшенной физикой вилли!</p>
                 <div class="price-buy-row">
@@ -990,7 +968,6 @@
         </div>
     </div>
 
-    <!-- 4. PROFIL SAHIFASI -->
     <div id="profilePage" class="page-content">
         <div class="profile-card">
             <div class="profile-avatar"><i class="fa-solid fa-user-ninja"></i></div>
@@ -1003,7 +980,6 @@
         </div>
     </div>
 
-    <!-- Modal Oyna: Нет в наличии -->
     <div class="modal-overlay" id="outOfStockModal">
         <div class="modal-box">
             <i class="fa-solid fa-triangle-exclamation main-icon"></i>
@@ -1013,7 +989,6 @@
         </div>
     </div>
 
-    <!-- Modal Oyna: Auth -->
     <div class="modal-overlay" id="authModal">
         <div class="modal-box">
             <i class="fa-solid fa-user-shield main-icon" style="color: var(--accent-blue);"></i>
@@ -1030,7 +1005,6 @@
         </div>
     </div>
 
-    <!-- Footer -->
     <footer>
         <p class="footer-text" id="footerText">Официальный TikTok разработчика для связи:</p>
         <a href="https://www.tiktok.com/@wheelie_worlds" target="_blank" class="social-link">
@@ -1038,31 +1012,22 @@
         </a>
     </footer>
 
-    <!-- JavaScript Scriptlar -->
     <script>
-        // Foydalanuvchi va rasm o'rnatishni yangilash
-        window.addEventListener('DOMContentLoaded', () => {
-            const pitImg = document.getElementById('pitbikeImg');
-            if(pitImg) {
-                pitImg.src = "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=600&auto=format&fit=crop";
-                // Siz tashlagan rasm fayl orqali yuklangan bo'lsa uni to'g'ridan-to'g'ri o'rnatamiz:
-                pitImg.src = "https://i.ibb.co/1G29x7b/red-pitbike.jpg"; // (Siz taqdim etgan qizil pitbayk vizual ko'rinishi)
-            }
-        });
+        // Barcha foydalanuvchilar bazasini va joriy foydalanuvchini boshqarish
+        let allUsers = JSON.parse(localStorage.getItem('ww_all_users')) || {};
+        let currentUsername = localStorage.getItem('ww_current_user') || null;
+        let currentUser = currentUsername && allUsers[currentUsername] ? allUsers[currentUsername] : null;
 
-        let currentUser = localStorage.getItem('ww_user') ? JSON.parse(localStorage.getItem('ww_user')) : null;
-        if(currentUser && currentUser.coins === undefined) {
-            currentUser.coins = 0;
-        }
         let isLoginMode = false;
         let promoUsed = localStorage.getItem('ww_promo') === 'true';
+        const SECRET_PROMO_HASH = "c29vbjIwMjc="; // "soon2027"
 
-        // Yashirin shifrlangan promokod tekshiruvi (Oddiy ko'zdan himoyalangan)
-        const SECRET_PROMO_HASH = "c29vbjIwMjc="; // "soon2027" base64 formatda
-
+        // Har 0.1 sekundda (100ms) avtomatik saqlash va balansni yangilash
         setInterval(() => {
-            if (currentUser) {
-                localStorage.setItem('ww_user', JSON.stringify(currentUser));
+            if (currentUser && currentUsername) {
+                allUsers[currentUsername] = currentUser;
+                localStorage.setItem('ww_all_users', JSON.stringify(allUsers));
+                localStorage.setItem('ww_current_user', currentUsername);
                 document.getElementById('userCoinsDisplay').innerText = currentUser.coins;
             } else {
                 document.getElementById('userCoinsDisplay').innerText = "0";
@@ -1072,19 +1037,14 @@
         window.onload = function() {
             updateAuthUI();
             startTimer();
-            // Pitbike rasmiga siz yuborgan qizil mototsikl rasmini to'g'ridan-to'g'ri biriktirish:
-            const pitImg = document.getElementById('pitbikeImg');
-            if(pitImg) {
-                pitImg.src = "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?q=80&w=600&auto=format&fit=crop"; 
-            }
         };
 
         function updateAuthUI() {
             const authBtn = document.getElementById('authHeaderBtn');
             if (currentUser) {
-                authBtn.innerText = currentUser.username;
+                authBtn.innerText = currentUsername;
                 authBtn.setAttribute('onclick', "switchPage('profile', document.getElementById('navHomeBtn'))");
-                document.getElementById('profileUsernameDisplay').innerText = currentUser.username;
+                document.getElementById('profileUsernameDisplay').innerText = currentUsername;
                 document.getElementById('profileCoinsVal').innerText = currentUser.coins + " Coins";
             } else {
                 authBtn.innerText = "Войти";
@@ -1159,16 +1119,44 @@
                 return;
             }
 
-            currentUser = { username: username, password: password, coins: 0 };
-            localStorage.setItem('ww_user', JSON.stringify(currentUser));
+            if(!isLoginMode) {
+                // REGISTRATION MODE: Check if account already exists
+                if(allUsers[username]) {
+                    alert("Такой аккаунт уже существует. Измените имя.");
+                    return;
+                }
+                // Create new account
+                allUsers[username] = { password: password, coins: 0 };
+                currentUsername = username;
+                currentUser = allUsers[username];
+                localStorage.setItem('ww_all_users', JSON.stringify(allUsers));
+                localStorage.setItem('ww_current_user', currentUsername);
+                alert("Регистрация успешна!");
+            } else {
+                // LOGIN MODE: Check if account exists and password matches
+                if(!allUsers[username]) {
+                    alert("Такого аккаунта не существует!");
+                    return;
+                }
+                if(allUsers[username].password !== password) {
+                    alert("Неверный пароль!");
+                    return;
+                }
+                // Login successful, restore coins and data
+                currentUsername = username;
+                currentUser = allUsers[username];
+                localStorage.setItem('ww_current_user', currentUsername);
+                alert("Успешный вход!");
+            }
+
             updateAuthUI();
             closeAuthModal();
-            alert("Успешно!");
         }
 
         function logoutUser() {
+            currentUsername = null;
             currentUser = null;
-            localStorage.removeItem('ww_user');
+            localStorage.removeItem('ww_current_user');
             updateAuthUI();
             switchPage('home', document.getElementById('navHomeBtn'));
         }
