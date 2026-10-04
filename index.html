@@ -52,6 +52,50 @@
             z-index: -1;
         }
 
+        /* YANGI: Tepada doimiy ko'rinib turuvchi jonli taymer paneli */
+        .top-demo-countdown-bar {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            border-bottom: 3px solid var(--accent-pink);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            z-index: 105;
+            flex-wrap: wrap;
+        }
+
+        .top-demo-countdown-bar i {
+            color: var(--accent-pink);
+            animation: pulseIcon 1.5s infinite;
+        }
+
+        @keyframes pulseIcon {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .countdown-digits {
+            display: flex;
+            gap: 10px;
+        }
+
+        .digit-box {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 4px 10px;
+            border-radius: 8px;
+            letter-spacing: 1px;
+            font-weight: 900;
+            color: #38bdf8;
+        }
+
         header {
             display: flex;
             justify-content: space-between;
@@ -807,10 +851,23 @@
             .logo-nav { flex-direction: column; gap: 10px; }
             .logo { font-size: 2.2rem; }
             .hero-card h1 { font-size: 2.3rem; }
+            .top-demo-countdown-bar { font-size: 0.85rem; padding: 10px; }
         }
     </style>
 </head>
 <body>
+
+    <!-- YANGI: Tepada doimiy ko'rinib turuvchi sekundigacha o'tuvchi 4 kunlik demo taymer paneli -->
+    <div class="top-demo-countdown-bar">
+        <i class="fa-solid fa-hourglass-half"></i>
+        <span id="demoBarText">До выхода демо-версии осталось:</span>
+        <div class="countdown-digits">
+            <span class="digit-box" id="demoDays">04</span>d
+            <span class="digit-box" id="demoHours">00</span>h
+            <span class="digit-box" id="demoMinutes">00</span>m
+            <span class="digit-box" id="demoSeconds">00</span>s
+        </div>
+    </div>
 
     <header>
         <div class="logo-nav">
@@ -1037,6 +1094,7 @@
         window.onload = function() {
             updateAuthUI();
             startTimer();
+            startDemoCountdown();
         };
 
         function updateAuthUI() {
@@ -1199,6 +1257,34 @@
             }, 1000);
         }
 
+        // YANGI: Demo versiya uchun 4 kunlik jonli sekundomer taymeri
+        function startDemoCountdown() {
+            // 4 kunlik sekund miqdori (4 * 24 * 3600) yoki localStorage'dan olish
+            let demoTime = localStorage.getItem('ww_demo_time');
+            if (!demoTime) {
+                demoTime = 4 * 24 * 3600; // 4 kun
+            } else {
+                demoTime = parseInt(demoTime);
+            }
+
+            setInterval(() => {
+                if (demoTime > 0) {
+                    demoTime--;
+                }
+                localStorage.setItem('ww_demo_time', demoTime);
+
+                let days = Math.floor(demoTime / (3600 * 24));
+                let hours = Math.floor((demoTime % (3600 * 24)) / 3600);
+                let minutes = Math.floor((demoTime % 3600) / 60);
+                let seconds = demoTime % 60;
+
+                document.getElementById('demoDays').innerText = String(days).padStart(2, '0');
+                document.getElementById('demoHours').innerText = String(hours).padStart(2, '0');
+                document.getElementById('demoMinutes').innerText = String(minutes).padStart(2, '0');
+                document.getElementById('demoSeconds').innerText = String(seconds).padStart(2, '0');
+            }, 1000);
+        }
+
         function changeLang(lang) {
             const menuHomeText = document.getElementById('menuHomeText');
             const menuDonateText = document.getElementById('menuDonateText');
@@ -1227,6 +1313,7 @@
             const profileCoinLabel = document.getElementById('profileCoinLabel');
             const logoutBtnText = document.getElementById('logoutBtnText');
             const footerText = document.getElementById('footerText');
+            const demoBarText = document.getElementById('demoBarText');
 
             if(lang === 'ru') {
                 menuHomeText.innerText = "Главная";
@@ -1256,6 +1343,7 @@
                 profileCoinLabel.innerText = "Ваш баланс:";
                 logoutBtnText.innerText = "Выйти из аккаунта";
                 footerText.innerText = "Официальный TikTok разработчика для связи:";
+                demoBarText.innerText = "До выхода демо-версии осталось:";
             } 
             else if(lang === 'en') {
                 menuHomeText.innerText = "Home";
@@ -1285,6 +1373,7 @@
                 profileCoinLabel.innerText = "Your balance:";
                 logoutBtnText.innerText = "Log out";
                 footerText.innerText = "Official Developer TikTok for contact:";
+                demoBarText.innerText = "Demo version releases in:";
             } 
             else if(lang === 'ua') {
                 menuHomeText.innerText = "Головна";
@@ -1314,6 +1403,7 @@
                 profileCoinLabel.innerText = "Ваш баланс:";
                 logoutBtnText.innerText = "Вийти з акаунта";
                 footerText.innerText = "Офіційний TikTok розробника для зв'язку:";
+                demoBarText.innerText = "До виходу демо-версії залишилося:";
             }
         }
     </script>
